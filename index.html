@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Anime Closet | Curated Aesthetic Lookbook</title>
+    
+    <!-- CRITICAL: Synchronous Theme Detector in Head prevents white flash in dark mode -->
+    <script>
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        taupeCream: '#F4F1EA',
+                        cardLight: '#FFFFFF',
+                        espresso: '#271C19',
+                        obsidian: '#030305',
+                        cardObsidian: '#0E0E12',
+                        tangerine: '#FF6B00',
+                    },
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                        punk: ['"Syne"', '"Space Grotesk"', 'sans-serif'],
+                        editorial: ['"Playfair Display"', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts: Inter, Syne, Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- External Custom Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-taupeCream text-espresso dark:bg-obsidian dark:text-zinc-100 min-h-screen selection:bg-tangerine selection:text-white font-sans antialiased overflow-x-hidden relative">
+
+    <!-- LIVING BACKGROUND AURA CONTAINER -->
+    <div id="ambient-glow" class="fixed inset-0 pointer-events-none z-0 transition-all duration-700 opacity-0 blur-[140px]"></div>
+
+    <!-- MAIN WRAPPER -->
+    <div class="relative z-10 flex flex-col min-h-screen px-6 md:px-12 py-8 max-w-7xl mx-auto">
+
+        <!-- HEADER / NAVIGATION -->
+        <header class="flex items-center justify-between border-b-2 border-espresso dark:border-zinc-700 pb-6 mb-12">
+            <div class="flex items-center gap-3">
+                <div class="w-9 h-9 rounded-xl bg-tangerine flex items-center justify-center text-white font-bold text-sm tracking-wider shadow-md border-2 border-espresso dark:border-zinc-500">
+                    AC
+                </div>
+                <div>
+                    <!-- BRAND TITLE SLOT -->
+                    <a href="index.html" class="font-bold text-lg md:text-xl tracking-tight text-espresso dark:text-zinc-100 dark:font-punk">
+                        The Anime Closet<span class="text-tangerine">.</span>
+                    </a>
+                    <p class="text-[10px] uppercase tracking-widest text-espresso/70 dark:text-zinc-400 font-mono font-semibold">Anyone can be a stand user</p>
+                </div>
+            </div>
+
+            <!-- NAVIGATION LINKS SLOT -->
+            <nav class="hidden md:flex items-center gap-8 text-xs font-semibold uppercase tracking-wider text-espresso dark:text-zinc-300 font-mono">
+                <a href="index.html" class="text-tangerine font-bold transition-colors">Home</a>
+                <a href="#lookbooks" class="hover:text-tangerine transition-colors">Lookbooks</a>
+                <a href="about.html" class="hover:text-tangerine transition-colors">About Us</a>
+            </nav>
+
+            <!-- CONTACT US BUTTON SLOT -->
+            <a href="#contact" class="flex items-center gap-2 px-4 py-2 rounded-full bg-cardLight dark:bg-cardObsidian border-2 border-espresso dark:border-zinc-600 text-xs text-espresso dark:text-zinc-200 font-mono font-semibold hover:bg-tangerine hover:text-white dark:hover:border-tangerine dark:hover:text-tangerine transition-colors shadow-sm">
+                Contact Us ↗
+            </a>
+        </header>
+
+        <!-- BALANCED HERO SECTION -->
+        <section class="mb-14 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center border-b-2 border-espresso/20 dark:border-zinc-800 pb-12">
+            
+            <div class="lg:col-span-7 flex flex-col items-start">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-100 dark:bg-zinc-900 text-tangerine text-xs font-mono font-bold uppercase tracking-wider mb-5 border-2 border-espresso dark:border-zinc-600 shadow-sm">
+                    <span class="w-1.5 h-1.5 rounded-full bg-tangerine animate-pulse"></span>
+                    Newest Drop Live: Gear 5 & Dark Academia Edit
+                </div>
+                <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-espresso dark:text-zinc-100 mb-5 leading-[1.2] dark:font-punk">
+                    Where Anime Aesthetics Meet <span class="text-tangerine font-normal italic font-editorial">High-Fashion Streetwear.</span>
+                </h1>
+                <p class="text-espresso/90 dark:text-zinc-300 text-sm md:text-base leading-relaxed mb-8 max-w-xl font-medium">
+                    Meticulously curated looks inspired by your favorite anime icons, built for daily wear and sourced directly across India's top trend-setting online fashion destinations.
+                </p>
+                <div class="flex flex-wrap items-center gap-3 font-mono text-xs text-espresso dark:text-zinc-300 bg-cardLight dark:bg-cardObsidian px-5 py-3.5 rounded-2xl border-2 border-espresso dark:border-zinc-600 shadow-sm font-semibold">
+                    <span>TREND STORES VIA EARNKARO:</span>
+                    <span class="text-tangerine font-bold">MYNTRA • FLIPKART • AJIO • SAVANA</span>
+                </div>
+            </div>
+
+            <!-- RIGHT COLUMN: Spotlight Preview Card -->
+            <div class="lg:col-span-5 w-full">
+                <!-- AFFILIATE LINK SLOT: EarnKaro URL -->
+                <a href="luffy.html" 
+                   class="card-container group block bg-cardLight dark:bg-cardObsidian border-2 border-espresso dark:border-zinc-700 rounded-3xl p-4 shadow-[4px_4px_0px_0px_#271C19] dark:shadow-[4px_4px_0px_0px_#71717A] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all"
+                   data-aura="rgba(255, 107, 0, 0.4)">
+                    <!-- IMAGE SLOT: Hero Featured Preview Asset -->
+                    <div class="relative w-full h-64 sm:h-72 rounded-2xl overflow-hidden bg-taupeCream dark:bg-zinc-950 mb-4 border-2 border-espresso dark:border-zinc-700">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=800" 
+                             alt="Featured Look Preview" 
+                             class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-3 left-3 bg-cardLight dark:bg-cardObsidian backdrop-blur-md px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider border-2 border-espresso dark:border-zinc-600 text-espresso dark:text-zinc-200 shadow-sm">
+                            ★ Spotlight Look
+                        </div>
+                    </div>
+                    <div class="flex items-center justify-between px-1">
+                        <div>
+                            <h3 class="font-bold text-base text-espresso dark:text-zinc-100 group-hover:text-tangerine transition-colors dark:font-punk">Straw Hat Voyager Edit</h3>
+                            <p class="text-xs text-espresso/70 dark:text-zinc-400 mt-0.5 font-medium">Cardigan, Denim & Straw Accents</p>
+                        </div>
+                        <span class="text-xs font-mono font-bold uppercase tracking-widest text-tangerine group-hover:translate-x-1 transition-transform">
+                            View ↗
+                        </span>
+                    </div>
+                </a>
+            </div>
+
+        </section>
+
+        <!-- ASYMMETRICAL BENTO GRID -->
+        <main id="lookbooks" class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-16 flex-grow">
+
+            <!-- CHARACTER CARD 1: LUFFY -->
+            <!-- AFFILIATE LINK SLOT: EarnKaro URL -->
+            <a href="luffy.html" 
+               class="card-container luffy-card md:col-span-2 group block bg-cardLight dark:bg-cardObsidian border-2 border-espresso dark:border-zinc-700 rounded-2xl p-5 overflow-hidden shadow-[4px_4px_0px_0px_#271C19] dark:shadow-[4px_4px_0px_0px_#71717A] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex flex-col justify-between"
+               data-aura="rgba(255, 107, 0, 0.45)">
+                <!-- IMAGE SLOT: Luffy Hero Lookbook Cover -->
+                <div class="relative w-full h-72 md:h-96 rounded-xl overflow-hidden bg-taupeCream dark:bg-zinc-950 mb-4 border-2 border-espresso dark:border-zinc-700">
+                    <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1000" 
+                         alt="Monkey D. Luffy Lookbook" 
+                         class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute top-3 left-3 bg-cardLight dark:bg-cardObsidian backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-bold tracking-wide uppercase border-2 border-espresso dark:border-zinc-600 text-tangerine dark:text-zinc-200 font-mono shadow-sm">
+                        Straw Hat Archive • New Drop
+                    </div>
+                </div>
+                <div class="flex items-end justify-between px-1 pb-1">
+                    <div>
+                        <h2 class="text-2xl font-bold text-espresso dark:text-zinc-100 group-hover:text-tangerine transition-colors dark:font-punk">Monkey D. Luffy</h2>
+                        <p class="text-xs text-espresso/80 dark:text-zinc-400 mt-1 font-medium">Oversized Red Layering, Utility Vests & Streetwear Sneakers</p>
+                    </div>
+                    <span class="text-xs uppercase tracking-widest font-mono font-bold text-tangerine group-hover:translate-x-1.5 transition-transform inline-flex items-center gap-1.5">
+                        Explore Look ↗
+                    </span>
+                </div>
+            </a>
+
+            <!-- CHARACTER CARD 2: ZORO -->
+            <!-- AFFILIATE LINK SLOT: EarnKaro URL -->
+            <a href="zoro.html" 
+               class="card-container zoro-card md:col-span-1 group block bg-cardLight dark:bg-cardObsidian border-2 border-espresso dark:border-zinc-700 rounded-2xl p-4 overflow-hidden shadow-[4px_4px_0px_0px_#271C19] dark:shadow-[4px_4px_0px_0px_#71717A] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex flex-col justify-between"
+               data-aura="rgba(16, 185, 129, 0.45)">
+                <!-- IMAGE SLOT: Zoro Lookbook Cover -->
+                <div class="relative w-full h-72 md:h-96 rounded-xl overflow-hidden bg-taupeCream dark:bg-zinc-950 mb-4 border-2 border-espresso dark:border-zinc-700">
+                    <img src="https://images.unsplash.com/photo-1509631179647-0177331693ae?auto=format&fit=crop&q=80&w=800" 
+                         alt="Roronoa Zoro Lookbook" 
+                         class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute top-3 left-3 bg-cardLight dark:bg-cardObsidian backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase border-2 border-espresso dark:border-zinc-600 text-emerald-600 dark:text-zinc-200 font-mono shadow-sm">
+                        Dark Academia
+                    </div>
+                </div>
+                <div class="flex flex-col gap-3 px-1 pb-1">
+                    <div>
+                        <h2 class="text-xl font-bold text-espresso dark:text-zinc-100 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors dark:font-punk">Roronoa Zoro</h2>
+                        <p class="text-xs text-espresso/80 dark:text-zinc-400 mt-1 font-medium">Sage Layering & Monochromatic Noir</p>
+                    </div>
+                    <span class="text-xs uppercase tracking-widest font-mono font-bold text-emerald-600 dark:text-emerald-400 group-hover:translate-x-1.5 transition-transform inline-flex items-center gap-1.5 self-start">
+                        Explore Look ↗
+                    </span>
+                </div>
+            </a>
+
+            <!-- CHARACTER CARD 3: SANJI -->
+            <!-- AFFILIATE LINK SLOT: EarnKaro URL -->
+            <a href="sanji.html" 
+               class="card-container sanji-card md:col-span-1 group block bg-cardLight dark:bg-cardObsidian border-2 border-espresso dark:border-zinc-700 rounded-2xl p-4 overflow-hidden shadow-[4px_4px_0px_0px_#271C19] dark:shadow-[4px_4px_0px_0px_#71717A] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex flex-col justify-between"
+               data-aura="rgba(245, 158, 11, 0.45)">
+                <!-- IMAGE SLOT: Sanji Lookbook Cover -->
+                <div class="relative w-full h-72 md:h-80 rounded-xl overflow-hidden bg-taupeCream dark:bg-zinc-950 mb-4 border-2 border-espresso dark:border-zinc-700">
+                    <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&q=80&w=800" 
+                         alt="Vinsmoke Sanji Lookbook" 
+                         class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute top-3 left-3 bg-cardLight dark:bg-cardObsidian backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase border-2 border-espresso dark:border-zinc-600 text-amber-600 dark:text-zinc-200 font-mono shadow-sm">
+                        Tailored Noir
+                    </div>
+                </div>
+                <div class="flex flex-col gap-3 px-1 pb-1">
+                    <div>
+                        <h2 class="text-xl font-bold text-espresso dark:text-zinc-100 group-hover:text-amber-600 dark:group-hover:text-amber-400 transition-colors dark:font-punk">Vinsmoke Sanji</h2>
+                        <p class="text-xs text-espresso/80 dark:text-zinc-400 mt-1 font-medium">Sharp Minimalist Suits & Golden Accents</p>
+                    </div>
+                    <span class="text-xs uppercase tracking-widest font-mono font-bold text-amber-600 dark:text-amber-400 group-hover:translate-x-1.5 transition-transform inline-flex items-center gap-1.5 self-start">
+                        Explore Look ↗
+                    </span>
+                </div>
+            </a>
+
+            <!-- CHARACTER CARD 4: GOJO -->
+            <!-- AFFILIATE LINK SLOT: EarnKaro URL -->
+            <a href="gojo.html" 
+               class="card-container gojo-card md:col-span-2 group block bg-cardLight dark:bg-cardObsidian border-2 border-espresso dark:border-zinc-700 rounded-2xl p-5 overflow-hidden shadow-[4px_4px_0px_0px_#271C19] dark:shadow-[4px_4px_0px_0px_#71717A] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex flex-col justify-between"
+               data-aura="rgba(59, 130, 246, 0.45)">
+                <!-- IMAGE SLOT: Gojo Lookbook Cover -->
+                <div class="relative w-full h-72 md:h-80 rounded-xl overflow-hidden bg-taupeCream dark:bg-zinc-950 mb-4 border-2 border-espresso dark:border-zinc-700">
+                    <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1000" 
+                         alt="Satoru Gojo Lookbook" 
+                         class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute top-3 left-3 bg-cardLight dark:bg-cardObsidian backdrop-blur-md px-3.5 py-1 rounded-full text-xs font-bold tracking-wide uppercase border-2 border-espresso dark:border-zinc-600 text-blue-600 dark:text-zinc-200 font-mono shadow-sm">
+                        Infinity Streetwear
+                    </div>
+                </div>
+                <div class="flex items-end justify-between px-1 pb-1">
+                    <div>
+                        <h2 class="text-2xl font-bold text-espresso dark:text-zinc-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors dark:font-punk">Satoru Gojo</h2>
+                        <p class="text-xs text-espresso/80 dark:text-zinc-400 mt-1 font-medium">Monochromatic High Collars, Blindfolds & Statement Outerwear</p>
+                    </div>
+                    <span class="text-xs uppercase tracking-widest font-mono font-bold text-blue-600 dark:text-blue-400 group-hover:translate-x-1.5 transition-transform inline-flex items-center gap-1.5">
+                        Explore Look ↗
+                    </span>
+                </div>
+            </a>
+
+            <!-- CHARACTER CARD 5: ROBIN -->
+            <!-- AFFILIATE LINK SLOT: EarnKaro URL -->
+            <a href="robin.html" 
+               class="card-container robin-card md:col-span-1 group block bg-cardLight dark:bg-cardObsidian border-2 border-espresso dark:border-zinc-700 rounded-2xl p-4 overflow-hidden shadow-[4px_4px_0px_0px_#271C19] dark:shadow-[4px_4px_0px_0px_#71717A] hover:translate-x-1 hover:translate-y-1 hover:shadow-none transition-all flex flex-col justify-between"
+               data-aura="rgba(168, 85, 247, 0.45)">
+                <!-- IMAGE SLOT: Robin Lookbook Cover -->
+                <div class="relative w-full h-72 md:h-80 rounded-xl overflow-hidden bg-taupeCream dark:bg-zinc-950 mb-4 border-2 border-espresso dark:border-zinc-700">
+                    <img src="https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&q=80&w=800" 
+                         alt="Nico Robin Lookbook" 
+                         class="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute top-3 left-3 bg-cardLight dark:bg-cardObsidian backdrop-blur-md px-3 py-1 rounded-full text-xs font-bold tracking-wide uppercase border-2 border-espresso dark:border-zinc-600 text-purple-600 dark:text-zinc-200 font-mono shadow-sm">
+                        Vintage Academia
+                    </div>
+                </div>
+                <div class="flex flex-col gap-3 px-1 pb-1">
+                    <div>
+                        <h2 class="text-xl font-bold text-espresso dark:text-zinc-100 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors dark:font-punk">Nico Robin</h2>
+                        <p class="text-xs text-espresso/80 dark:text-zinc-400 mt-1 font-medium">Trench Coats, Pleated Skirts & Literary Elegance</p>
+                    </div>
+                    <span class="text-xs uppercase tracking-widest font-mono font-bold text-purple-600 dark:group-hover:text-purple-400 group-hover:translate-x-1.5 transition-transform inline-flex items-center gap-1.5 self-start">
+                        Explore Look ↗
+                    </span>
+                </div>
+            </a>
+
+        </main>
+
+        <!-- FOOTER / CONTACT SECTION -->
+        <footer id="contact" class="border-t-2 border-espresso dark:border-zinc-700 pt-8 pb-12 flex flex-col md:flex-row items-center justify-between text-xs text-espresso dark:text-zinc-300 gap-6 font-semibold">
+            <p>&copy; 2026 The Anime Closet. Curated for Indian Fashion & Anime Enthusiasts.</p>
+            <div class="flex items-center gap-6 font-mono">
+                <a href="about.html" class="hover:text-tangerine transition-colors">About Us</a>
+                <span>•</span>
+                <!-- EMAIL SLOT -->
+                <a href="mailto:hello@theanimecloset.in" class="hover:text-tangerine transition-colors">Email: hello@theanimecloset.in ↗</a>
+                <span>•</span>
+                <!-- INSTAGRAM SLOT -->
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-tangerine transition-colors">Instagram: @theanimecloset ↗</a>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- External Custom JavaScript Controller -->
+    <script src="js/script.js"></script>
+</body>
+</html>

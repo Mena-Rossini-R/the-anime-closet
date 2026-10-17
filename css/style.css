@@ -1,0 +1,29 @@
+/* ================================================================= *
+   THE ANIME CLOSET - MASTER DESIGN SYSTEM STYLES
+   ================================================================ */
+
+body {
+    transition: background-color 0.6s ease, color 0.5s ease;
+    scroll-behavior: smooth;
+}
+
+/* Card Hover Effects with Crisp Neo-Brutalist & Editorial Borders */
+.card-container {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+}
+.card-container:hover {
+    transform: translateY(-5px);
+}
+
+/* Light Mode Crisp Border Hover Shadows */
+html:not(.dark) .luffy-card:hover { box-shadow: 0 20px 40px -15px rgba(255, 107, 0, 0.3); border-color: #271C19; }
+html:not(.dark) .zoro-card:hover { box-shadow: 0 20px 40px -15px rgba(16, 185, 129, 0.3); border-color: #271C19; }
+html:not(.dark) .sanji-card:hover { box-shadow: 0 20px 40px -15px rgba(245, 158, 11, 0.3); border-color: #271C19; }
+html:not(.dark) .gojo-card:hover { box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.3); border-color: #271C19; }
+html:not(.dark) .robin-card:hover { box-shadow: 0 20px 40px -15px rgba(168, 85, 247, 0.3); border-color: #271C19; }
+
+/* Dark Mode White/Silver Border Glow & Pop on Hover */
+html.dark .card-container:hover { 
+    border-color: rgba(255, 255, 255, 0.9); 
+    box-shadow: 0 0 35px rgba(255, 107, 0, 0.25); 
+}
