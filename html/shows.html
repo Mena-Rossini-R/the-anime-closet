@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!-- 
+    THE OUTFITS - SHOWS HUB (`shows.html`)
+    - 5 Equal Square Lookbooks Per Row Grid Layout (Matching anime.html & korean.html)
+    - Peaceful Milk-Cream & Rich Cocoa Editorial Zine Styling
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popular Shows Hub | The Outfits</title>
+    
+    <!-- CRITICAL: Synchronous Theme Detector in Head prevents white flash in dark mode -->
+    <script>
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        taupeCream: '#F7F4EE',
+                        cardLight: '#FFFFFF',
+                        petrol: '#2D2522',
+                        obsidian: '#121212',
+                        cardObsidian: '#1A1A1A',
+                        tangerine: '#D96B43',
+                    },
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                        punk: ['"Syne"', '"Space Grotesk"', 'sans-serif'],
+                        editorial: ['"Playfair Display"', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- External Custom Stylesheet -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-taupeCream text-petrol dark:bg-obsidian dark:text-zinc-100 min-h-screen selection:bg-tangerine selection:text-white font-sans antialiased overflow-x-hidden relative flex flex-col justify-between">
+
+    <!-- MAIN WRAPPER -->
+    <div class="relative z-10 flex flex-col min-h-screen px-6 md:px-12 py-6 w-full">
+
+        <!-- HEADER / NAVIGATION -->
+        <header class="flex items-center justify-between border-b-2 border-petrol dark:border-zinc-700 pb-4 mb-6 sticky top-0 z-50 bg-taupeCream/90 dark:bg-obsidian/90 backdrop-blur-md">
+            <div class="flex items-center gap-3">
+                <!-- BRAND LOGO SLOT -->
+                <!-- BRAND LOGO SLOT IN RICH COCOA -->
+<div class="w-9 h-9 rounded-xl bg-petrol flex items-center justify-center text-white font-bold text-sm tracking-wider shadow-md border-2 border-petrol dark:border-zinc-500">
+    TO
+</div>
+                <div>
+                    <a href="index.html" class="font-bold text-base sm:text-lg tracking-tight text-petrol dark:text-zinc-100 dark:font-punk">
+                        The Outfits<span class="text-tangerine">.</span>
+                    </a>
+                    <p class="text-[9px] uppercase tracking-widest text-petrol/70 dark:text-zinc-400 font-mono font-semibold">Why Make It Boring?</p>
+                </div>
+            </div>
+
+            <!-- MULTI-GENRE NAVIGATION LINKS -->
+            <nav class="hidden md:flex items-center gap-6 text-sm font-semibold uppercase tracking-wider text-petrol dark:text-zinc-300 font-mono">
+                <a href="index.html" class="hover:text-tangerine transition-colors">Home</a>
+                <a href="anime.html" class="hover:text-tangerine transition-colors">Anime</a>
+                <a href="korean.html" class="hover:text-tangerine transition-colors">Korean</a>
+                <a href="shows.html" class="text-tangerine font-bold transition-colors">Shows</a>
+                <a href="about.html" class="hover:text-tangerine transition-colors">About Us</a>
+            </nav>
+
+            <!-- CONTACT US BUTTON -->
+            <a href="about.html#contact" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 text-xs text-petrol dark:text-zinc-200 font-mono font-semibold hover:bg-tangerine hover:text-white transition-colors shadow-sm">
+                Contact Us ↗
+            </a>
+        </header>
+
+        <!-- MAIN HUB CONTENT -->
+        <main class="flex-grow space-y-6 mb-12">
+
+            <!-- COMPACT ANCHORED INTRO BANNER -->
+            <div class="bg-petrol text-taupeCream border-2 border-petrol dark:border-zinc-700 py-4 px-6 sm:px-8 rounded-2xl shadow-[4px_4px_0px_0px_#2D2522] dark:shadow-[4px_4px_0px_0px_#71717A] flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                <div class="space-y-1">
+                    <h1 class="text-xl sm:text-2xl font-bold tracking-tight text-taupeCream font-punk">Match The Vibe</h1>
+                    <p class="text-xs text-taupeCream/80 font-medium">Curated daily-wear outfits inspired by unforgettable characters from your favorite series.</p>
+                </div>
+                
+                <!-- Series Dropdown Selector -->
+                <div class="w-full sm:w-auto flex items-center gap-2 flex-shrink-0">
+                    <label for="shows-select" class="text-[11px] font-mono font-bold uppercase tracking-wider text-taupeCream/80 whitespace-nowrap">Series:</label>
+                    <select id="shows-select" onchange="filterShows(this.value)" class="w-full sm:w-44 bg-taupeCream text-petrol border-2 border-petrol px-3 py-1.5 rounded-xl text-xs font-mono font-bold uppercase tracking-wider shadow-sm focus:outline-none focus:border-tangerine cursor-pointer">
+                        <option value="all">All Series</option>
+                        <option value="friends">Friends</option>
+                        <option value="euphoria">Euphoria</option>
+                        <option value="succession">Succession</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- 5-COLUMN EQUAL SQUARE LOOKBOOK GRID -->
+            <div id="shows-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 items-stretch">
+
+                <!-- SHOWS CARD 1: FRIENDS / RACHEL GREEN -->
+                <a href="character.html?char=racheal" 
+                   class="card-container col-span-1 group block bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 rounded-2xl overflow-hidden shadow-[4px_4px_0px_0px_#2D2522] dark:shadow-[4px_4px_0px_0px_#71717A] hover:-translate-y-1 transition-all flex flex-col justify-between"
+                   data-series="friends">
+                    <!-- IMAGE SLOT: Mannequin Asset -->
+                    <div class="relative w-full aspect-square bg-white dark:bg-zinc-950 overflow-hidden flex items-center justify-center p-3 border-b-2 border-petrol dark:border-zinc-700">
+                        <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1000" alt="Rachel Green Friends Lookbook" class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-2 left-2 bg-[#2D2522] text-[#F7F4EE] px-2 py-0.5 rounded-full text-[9px] font-mono font-bold uppercase border border-petrol shadow-sm z-10">
+                            Friends
+                        </div>
+                    </div>
+                    <!-- CARD FOOTER -->
+                    <div class="p-3 flex items-center justify-between bg-cardLight dark:bg-cardObsidian group-hover:bg-petrol group-hover:text-taupeCream transition-colors duration-300">
+                        <div>
+                            <h2 class="text-sm font-bold text-petrol group-hover:text-taupeCream transition-colors font-punk">Rachel Green</h2>
+                        </div>
+                        <span class="text-[10px] font-mono font-bold uppercase text-tangerine group-hover:text-taupeCream">Open ↗</span>
+                    </div>
+                </a>
+
+                <!-- SHOWS CARD 2: EUPHORIA -->
+                <div class="card-container col-span-1 group block bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 rounded-2xl overflow-hidden shadow-[4px_4px_0px_0px_#2D2522] dark:shadow-[4px_4px_0px_0px_#71717A] hover:-translate-y-1 transition-all flex flex-col justify-between opacity-80" data-series="euphoria">
+                    <!-- IMAGE SLOT: Mannequin Asset -->
+                    <div class="relative w-full aspect-square bg-white dark:bg-zinc-950 overflow-hidden flex items-center justify-center p-3 border-b-2 border-petrol dark:border-zinc-700">
+                        <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1000" alt="Euphoria Subculture Core" class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-2 left-2 bg-[#2D2522] text-[#F7F4EE] px-2 py-0.5 rounded-full text-[9px] font-mono font-bold uppercase border border-petrol shadow-sm z-10">
+                            Euphoria
+                        </div>
+                    </div>
+                    <!-- CARD FOOTER -->
+                    <div class="p-3 flex items-center justify-between bg-cardLight dark:bg-cardObsidian">
+                        <div>
+                            <h2 class="text-sm font-bold text-petrol/80 font-punk">Euphoria Core</h2>
+                        </div>
+                        <span class="text-[10px] font-mono font-bold uppercase text-petrol/50">Soon ⌛</span>
+                    </div>
+                </div>
+
+                <!-- SHOWS CARD 3: SUCCESSION -->
+                <div class="card-container col-span-1 group block bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 rounded-2xl overflow-hidden shadow-[4px_4px_0px_0px_#2D2522] dark:shadow-[4px_4px_0px_0px_#71717A] hover:-translate-y-1 transition-all flex flex-col justify-between opacity-80" data-series="succession">
+                    <!-- IMAGE SLOT: Mannequin Asset -->
+                    <div class="relative w-full aspect-square bg-white dark:bg-zinc-950 overflow-hidden flex items-center justify-center p-3 border-b-2 border-petrol dark:border-zinc-700">
+                        <img src="https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&q=80&w=1000" alt="Succession Quiet Luxury" class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute top-2 left-2 bg-[#2D2522] text-[#F7F4EE] px-2 py-0.5 rounded-full text-[9px] font-mono font-bold uppercase border border-petrol shadow-sm z-10">
+                            Succession
+                        </div>
+                    </div>
+                    <!-- CARD FOOTER -->
+                    <div class="p-3 flex items-center justify-between bg-cardLight dark:bg-cardObsidian">
+                        <div>
+                            <h2 class="text-sm font-bold text-petrol/80 font-punk">Waystar Royco</h2>
+                        </div>
+                        <span class="text-[10px] font-mono font-bold uppercase text-petrol/50">Soon ⌛</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="border-t-2 border-petrol dark:border-zinc-700 pt-6 pb-8 flex flex-col md:flex-row items-center justify-between text-xs text-petrol dark:text-zinc-300 gap-6 font-semibold flex-shrink-0">
+            <p>&copy; 2026 The Outfits. Curated Pop-Culture & On-Screen Fashion for India.</p>
+            <div class="flex items-center gap-6 font-mono">
+                <a href="about.html" class="hover:text-tangerine transition-colors">About Us</a>
+                <span>•</span>
+                <a href="mailto:hello@theoutfits.in" class="hover:text-tangerine transition-colors">Email: hello@theoutfits.in ↗</a>
+                <span>•</span>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-tangerine transition-colors">Instagram: @theoutfits ↗</a>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- FILTER SCRIPT CONTROLLER -->
+    <script>
+        function filterShows(series) {
+            const cards = document.querySelectorAll('#shows-grid > div, #shows-grid > a');
+            cards.forEach(card => {
+                if (series === 'all' || card.getAttribute('data-series') === series) {
+                    card.style.display = 'flex';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+    <!-- External Custom JavaScript Controller -->
+    <script src="../js/script.js"></script>
+</body>
+</html>

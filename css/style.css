@@ -1,29 +1,51 @@
 /* ================================================================= *
-   THE ANIME CLOSET - MASTER DESIGN SYSTEM STYLES
+   THE ANIME CLOSET - PEACEFUL EDITORIAL GALLERY SYSTEM (`css/style.css`)
+   - Softened card borders and gentle, non-straining elevation shadows
    ================================================================ */
 
 body {
     transition: background-color 0.6s ease, color 0.5s ease;
     scroll-behavior: smooth;
+    font-family: 'Inter', sans-serif;
+    letter-spacing: -0.015em;
 }
 
-/* Card Hover Effects with Crisp Neo-Brutalist & Editorial Borders */
+
+/* Editorial Typography adjustments */
+
+h1,
+h2,
+h3,
+h4,
+.font-punk {
+    letter-spacing: -0.02em;
+}
+
+
+/* Smooth, Non-Fatiguing Card Elevation (Replaces harsh heavy block shadows) */
+
 .card-container {
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1.5px solid rgba(45, 37, 34, 0.15);
+    /* Soft, elegant cocoa border */
 }
+
 .card-container:hover {
-    transform: translateY(-5px);
+    transform: translateY(-2px);
 }
 
-/* Light Mode Crisp Border Hover Shadows */
-html:not(.dark) .luffy-card:hover { box-shadow: 0 20px 40px -15px rgba(255, 107, 0, 0.3); border-color: #271C19; }
-html:not(.dark) .zoro-card:hover { box-shadow: 0 20px 40px -15px rgba(16, 185, 129, 0.3); border-color: #271C19; }
-html:not(.dark) .sanji-card:hover { box-shadow: 0 20px 40px -15px rgba(245, 158, 11, 0.3); border-color: #271C19; }
-html:not(.dark) .gojo-card:hover { box-shadow: 0 20px 40px -15px rgba(59, 130, 246, 0.3); border-color: #271C19; }
-html:not(.dark) .robin-card:hover { box-shadow: 0 20px 40px -15px rgba(168, 85, 247, 0.3); border-color: #271C19; }
 
-/* Dark Mode White/Silver Border Glow & Pop on Hover */
-html.dark .card-container:hover { 
-    border-color: rgba(255, 255, 255, 0.9); 
-    box-shadow: 0 0 35px rgba(255, 107, 0, 0.25); 
+/* Light Mode: Gentle, diffused shadow with zero harsh glare */
+
+html:not(.dark) .card-container:hover {
+    box-shadow: 0 10px 25px -5px rgba(45, 37, 34, 0.08);
+    border-color: rgba(45, 37, 34, 0.3);
+}
+
+
+/* Dark Mode: Soft obsidian with subtle warm aura */
+
+html.dark .card-container:hover {
+    border-color: rgba(247, 244, 238, 0.3);
+    box-shadow: 0 0 20px rgba(217, 107, 67, 0.15);
 }

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<!-- 
+    THE OUTFITS - ABOUT US (`about.html`)
+    - Centered Open Letter Editorial Layout
+    - Fluid side-to-side stretch with balanced typography
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | The Outfits</title>
+    
+    <!-- CRITICAL: Synchronous Theme Detector in Head prevents white flash in dark mode -->
+    <script>
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        taupeCream: '#F7F4EE',
+                        cardLight: '#FFFFFF',
+                        petrol: '#2D2522',
+                        obsidian: '#121212',
+                        cardObsidian: '#1A1A1A',
+                        tangerine: '#D96B43',
+                    },
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                        punk: ['"Syne"', '"Space Grotesk"', 'sans-serif'],
+                        editorial: ['"Playfair Display"', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- External Custom Stylesheet -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-taupeCream text-petrol dark:bg-obsidian dark:text-zinc-100 min-h-screen selection:bg-tangerine selection:text-white font-sans antialiased flex flex-col justify-between">
+
+    <!-- MAIN WRAPPER (Full-width fluid stretch with balanced padding) -->
+    <div class="relative z-10 flex flex-col min-h-screen px-6 md:px-12 py-6 w-full">
+
+        <!-- STICKY HEADER NAVIGATION -->
+        <header class="flex items-center justify-between border-b-2 border-petrol dark:border-zinc-700 pb-4 mb-8 sticky top-0 z-50 bg-taupeCream/90 dark:bg-obsidian/90 backdrop-blur-md">
+            <div class="flex items-center gap-3">
+                <!-- BRAND LOGO SLOT IN RICH COCOA -->
+                <div class="w-9 h-9 rounded-xl bg-petrol flex items-center justify-center text-white font-bold text-sm tracking-wider shadow-md border-2 border-petrol dark:border-zinc-500">
+                    TO
+                </div>
+                <div>
+                    <a href="index.html" class="font-bold text-base md:text-lg tracking-tight text-petrol dark:text-zinc-100 dark:font-punk">
+                        The Outfits<span class="text-tangerine">.</span>
+                    </a>
+                    <p class="text-[9px] uppercase tracking-widest text-petrol/70 dark:text-zinc-400 font-mono font-semibold">Why Make It Boring?</p>
+                </div>
+            </div>
+
+            <!-- Top Right Navigation Links -->
+            <nav class="hidden md:flex items-center gap-6 text-xs font-semibold uppercase tracking-wider text-petrol dark:text-zinc-300 font-mono">
+                <a href="index.html" class="hover:text-tangerine transition-colors">Home</a>
+                <a href="anime.html" class="hover:text-tangerine transition-colors">Anime</a>
+                <a href="korean.html" class="hover:text-tangerine transition-colors">Korean</a>
+                <a href="shows.html" class="hover:text-tangerine transition-colors">Shows</a>
+                <a href="about.html" class="text-tangerine font-bold transition-colors">About Us</a>
+            </nav>
+
+            <a href="about.html#contact" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 text-xs text-petrol dark:text-zinc-200 font-mono font-semibold hover:bg-tangerine hover:text-white transition-colors shadow-sm">
+                Contact Us ↗
+            </a>
+        </header>
+
+        <!-- ABOUT US EDITORIAL CONTAINER -->
+        <main class="flex-grow space-y-8 mb-12">
+
+            <!-- Title & Subtitle Header -->
+            <div class="text-center space-y-2 max-w-3xl mx-auto">
+                <span class="px-3.5 py-1 rounded-full bg-orange-100 dark:bg-zinc-900 text-tangerine text-xs font-mono font-bold uppercase tracking-wider border-2 border-petrol dark:border-zinc-700 shadow-[3px_3px_0px_0px_#2D2522] dark:shadow-[3px_3px_0px_0px_#71717A] inline-block">
+                    💌 An Open Letter
+                </span>
+                <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight font-punk">
+                    Why We Built <span class="text-tangerine font-normal italic font-editorial">The Outfits.</span>
+                </h1>
+                <p class="text-xs font-mono text-petrol/60 dark:text-zinc-400 uppercase tracking-widest">A note from the founders</p>
+            </div>
+
+            <!-- CENTERED EDITORIAL LETTER CONTAINER -->
+            <div class="flex justify-center w-full">
+
+                <!-- MAIN OPEN LETTER (Centered, max-w-3xl) -->
+                <article class="card-container w-full max-w-3xl bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 px-8 py-8 sm:px-10 sm:py-10 rounded-3xl shadow-[6px_6px_0px_0px_#2D2522] dark:shadow-[6px_6px_0px_0px_#71717A] space-y-6 relative">
+                    
+                    <!-- Decorative Quote Seal -->
+                    <div class="absolute -top-4 right-8 w-10 h-10 rounded-2xl bg-tangerine text-white border-2 border-petrol dark:border-zinc-700 flex items-center justify-center font-bold text-lg shadow-[3px_3px_0px_0px_#2D2522] dark:shadow-[3px_3px_0px_0px_#71717A]">
+                        “
+                    </div>
+
+                    <div class="space-y-5 text-base sm:text-lg leading-relaxed text-petrol/90 dark:text-zinc-200 font-medium">
+                        <p>
+                            I usually love dressing like on-screen characters and pop-culture icons. It gives me a unique kind of confidence and genuinely makes me want to get up and go to work.
+                        </p>
+
+                        <p>
+                            So then I thought: <span class="bg-orange-100 dark:bg-zinc-800 px-2 py-0.5 rounded-lg font-bold text-tangerine border border-petrol/20">what if there are actually people out there just like me</span> who want this too?
+                        </p>
+
+                        <p>
+                            And that’s why we made <span class="font-bold text-tangerine">The Outfits</span>. My partner and I are building this together, side by side. No corporate fluff—just real clothes infused with character energy for everyday life.
+                        </p>
+                    </div>
+
+                    <!-- Signoff Stamp -->
+                    <div class="pt-6 border-t-2 border-petrol/15 dark:border-zinc-800 flex flex-col sm:flex-row items-start sm:items-center justify-between font-mono text-xs gap-3">
+                        <p class="text-petrol/70 dark:text-zinc-400 font-medium">Crafted with passion in India 🇮🇳</p>
+                        <div class="px-3 py-1 rounded-xl bg-taupeCream dark:bg-zinc-900 border border-petrol/30 dark:border-zinc-700 text-tangerine font-bold shadow-xs">
+                            <span>🏴‍☠️ The Creators</span>
+                        </div>
+                    </div>
+
+                </article>
+
+            </div>
+
+        </main>
+
+        <!-- FOOTER / CONTACT SECTION -->
+        <footer id="contact" class="border-t-2 border-petrol dark:border-zinc-700 pt-6 pb-8 flex flex-col md:flex-row items-center justify-between text-xs text-petrol dark:text-zinc-300 gap-6 font-semibold flex-shrink-0">
+            <p>&copy; 2026 The Outfits. Curated Pop-Culture & On-Screen Fashion for India.</p>
+            <div class="flex items-center gap-6 font-mono">
+                <a href="about.html" class="text-tangerine transition-colors">About Us</a>
+                <span>•</span>
+                <!-- EMAIL SLOT -->
+                <a href="mailto:hello@theoutfits.in" class="hover:text-tangerine transition-colors">Email: hello@theoutfits.in ↗</a>
+                <span>•</span>
+                <!-- INSTAGRAM SLOT -->
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-tangerine transition-colors">Instagram: @theoutfits ↗</a>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- External Custom JavaScript Controller -->
+    <script src="../js/script.js"></script>
+</body>
+</html>

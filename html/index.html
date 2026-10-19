@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<!-- 
+    THE OUTFITS - MASTER UNIVERSAL LANDING PAGE (`index.html`)
+    - 5 Outfits in One Row Grid Layout (`lg:grid-cols-5`)
+    - Fully Responsive & Fluid Full-Width Stretch
+-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Outfits | Pop-Culture & On-Screen Fashion Lookbook</title>
+    
+    <!-- CRITICAL: Synchronous Theme Detector in Head prevents white flash in dark mode -->
+    <script>
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.documentElement.classList.add('dark');
+        }
+    </script>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        taupeCream: '#F7F4EE',
+                        cardLight: '#FFFFFF',
+                        petrol: '#2D2522',
+                        obsidian: '#121212',
+                        cardObsidian: '#1A1A1A',
+                        tangerine: '#D96B43',
+                    },
+                    fontFamily: {
+                        sans: ['"Inter"', 'sans-serif'],
+                        punk: ['"Syne"', '"Space Grotesk"', 'sans-serif'],
+                        editorial: ['"Playfair Display"', 'Georgia', 'serif']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <!-- External Custom Stylesheet -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body class="bg-taupeCream text-petrol dark:bg-obsidian dark:text-zinc-100 min-h-screen selection:bg-tangerine selection:text-white font-sans antialiased overflow-x-hidden relative flex flex-col justify-between">
+
+    <!-- MAIN WRAPPER (Full Width Fluid Stretch) -->
+    <div class="relative z-10 flex flex-col min-h-screen px-6 md:px-12 py-6 w-full">
+
+        <!-- HEADER / NAVIGATION -->
+        <header class="flex items-center justify-between border-b-2 border-petrol dark:border-zinc-700 pb-4 mb-8 sticky top-0 z-50 bg-taupeCream/90 dark:bg-obsidian/90 backdrop-blur-md">
+            <div class="flex items-center gap-3">
+                <!-- BRAND LOGO SLOT IN RICH COCOA -->
+                <div class="w-9 h-9 rounded-xl bg-petrol flex items-center justify-center text-white font-bold text-sm tracking-wider shadow-md border-2 border-petrol dark:border-zinc-500">
+                    TO
+                </div>
+                <div>
+                    <a href="index.html" class="font-bold text-base sm:text-lg tracking-tight text-petrol dark:text-zinc-100 dark:font-punk">
+                        The Outfits<span class="text-tangerine">.</span>
+                    </a>
+                    <p class="text-[9px] uppercase tracking-widest text-petrol/70 dark:text-zinc-400 font-mono font-semibold">Why make it boring?</p>
+                </div>
+            </div>
+
+            <!-- UPGRADED NAVIGATION FONT SIZE (text-sm md:text-base) -->
+            <nav class="hidden md:flex items-center gap-6 text-sm md:text-base font-semibold uppercase tracking-wider text-petrol dark:text-zinc-300 font-mono">
+                <a href="index.html" class="text-tangerine font-bold transition-colors">Home</a>
+                <a href="anime.html" class="hover:text-tangerine transition-colors">Anime</a>
+                <a href="korean.html" class="hover:text-tangerine transition-colors">Korean</a>
+                <a href="shows.html" class="hover:text-tangerine transition-colors">Shows</a>
+                <a href="about.html" class="hover:text-tangerine transition-colors">About Us</a>
+            </nav>
+
+            <a href="about.html#contact" class="flex items-center gap-2 px-3.5 py-2 rounded-full bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 text-xs md:text-sm text-petrol dark:text-zinc-200 font-mono font-semibold hover:bg-tangerine hover:text-white transition-colors shadow-sm">
+                Contact Us ↗
+            </a>
+        </header>
+
+        <!-- MAIN LANDING CONTAINER -->
+        <main class="flex-grow space-y-8 mb-12">
+
+            <!-- HERO SECTION -->
+            <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch border-b-2 border-petrol/20 dark:border-zinc-800 pb-8">
+                <!-- PLAIN / CLEAN EDITORIAL HERO BLOCK -->
+                <div class="lg:col-span-7 flex flex-col justify-between space-y-5 bg-white dark:bg-cardObsidian text-petrol p-8 sm:p-10 rounded-3xl border-2 border-petrol dark:border-zinc-700 shadow-[6px_6px_0px_0px_#2D2522]">
+                    <div class="space-y-4">
+                        <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-petrol dark:text-zinc-100 leading-[1.2] font-punk">
+                            Screen Icons Meet <span class="text-tangerine font-normal italic font-editorial">Realistic Streetwear.</span>
+                        </h1>
+                        <p class="text-petrol/80 dark:text-zinc-300 text-sm md:text-base leading-relaxed max-w-xl font-medium">
+                            Meticulously curated looks inspired by your favorite anime characters, K-Drama leads, and television icons—sourced directly across India's top online fashion destinations.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-3 font-mono text-xs text-petrol dark:text-zinc-200 bg-taupeCream dark:bg-zinc-900 px-4 py-3 rounded-2xl border border-petrol/20 dark:border-zinc-700 shadow-sm font-semibold">
+                        <span class="text-petrol/70 dark:text-zinc-400">Outsourced From:</span>
+                        <span class="text-tangerine font-bold">MYNTRA • FLIPKART • AJIO • SAVANA</span>
+                    </div>
+                </div>
+
+                <!-- SPOTLIGHT SHOWCASE BANNER -->
+                <div class="lg:col-span-5 w-full flex flex-col">
+                    <div id="spotlight-card-container" class="h-full flex flex-col"></div>
+                </div>
+            </section>
+
+            <!-- COCOA-COLORED FILTER & SORT CONTROL CENTER -->
+            <section class="bg-petrol text-taupeCream border-2 border-petrol dark:border-zinc-700 p-4 rounded-2xl shadow-sm space-y-3">
+                <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+                    <h3 class="text-xs font-mono font-bold uppercase tracking-wider text-taupeCream/90">Master Catalog Filter & Sort</h3>
+                    
+                    <div class="flex flex-wrap items-center gap-3 w-full md:w-auto">
+                        <select id="filter-universe" onchange="resetAndFilter()" class="bg-taupeCream text-petrol border-2 border-petrol px-3 py-1.5 rounded-xl text-xs font-mono font-bold uppercase tracking-wider shadow-sm focus:outline-none focus:border-tangerine cursor-pointer">
+                            <option value="all">Universe: All</option>
+                            <option value="anime">Anime (All)</option>
+                            <option value="onepiece">⚡ One Piece (Subcategory)</option>
+                            <option value="korean">Korean</option>
+                            <option value="shows">Shows</option>
+                        </select>
+
+                        <select id="filter-gender" onchange="resetAndFilter()" class="bg-taupeCream text-petrol border-2 border-petrol px-3 py-1.5 rounded-xl text-xs font-mono font-bold uppercase tracking-wider shadow-sm focus:outline-none focus:border-tangerine cursor-pointer">
+                            <option value="all">Gender: All</option>
+                            <option value="male">Masculine Fit</option>
+                            <option value="female">Feminine Fit</option>
+                            <option value="unisex">Unisex / Neutral</option>
+                        </select>
+
+                        <select id="sort-order" onchange="resetAndFilter()" class="bg-taupeCream text-petrol border-2 border-petrol px-3 py-1.5 rounded-xl text-xs font-mono font-bold uppercase tracking-wider shadow-sm focus:outline-none focus:border-tangerine cursor-pointer">
+                            <option value="newest">Sort: Newest Drops</option>
+                            <option value="low-high">Price: Low to High</option>
+                            <option value="high-low">Price: High to Low</option>
+                        </select>
+                    </div>
+                </div>
+            </section>
+
+            <!-- DYNAMIC OUTFIT CARDS FEED (5 Cards in One Row on Desktop) -->
+            <section class="space-y-6">
+                <div class="flex items-center justify-between pb-3 border-b-2 border-petrol/20 dark:border-zinc-800">
+                    <h3 class="text-sm font-mono font-bold uppercase tracking-wider text-petrol dark:text-zinc-400">Curated Outfit Feed (<span id="feed-count">0</span>)</h3>
+                    <span class="text-[10px] font-mono text-tangerine font-bold uppercase">Ready to Shop</span>
+                </div>
+
+                <!-- 5-COLUMN RESPONSIVE GRID: 1 col on mobile, 2 on sm, 3 on md, 5 on lg -->
+                <div id="outfit-feed-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 items-stretch"></div>
+
+                <!-- LOAD MORE BUTTON -->
+                <div id="load-more-container" class="pt-6 text-center hidden">
+                    <button onclick="loadMoreItems()" class="px-6 py-3 rounded-2xl bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 font-mono text-xs font-bold uppercase tracking-wider hover:bg-tangerine hover:text-white transition-all shadow-sm">
+                        Load More Outfits ➔
+                    </button>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer id="contact" class="border-t-2 border-petrol dark:border-zinc-700 pt-6 pb-8 flex flex-col md:flex-row items-center justify-between text-xs text-petrol dark:text-zinc-300 gap-6 font-semibold flex-shrink-0">
+            <p>&copy; 2026 The Outfits. Curated Pop-Culture & On-Screen Fashion for India.</p>
+            <div class="flex items-center gap-6 font-mono">
+                <a href="about.html" class="hover:text-tangerine transition-colors">About Us</a>
+                <span>•</span>
+                <a href="mailto:hello@theoutfits.in" class="hover:text-tangerine transition-colors">Email: hello@theoutfits.in ↗</a>
+                <span>•</span>
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-tangerine transition-colors">Instagram: @theoutfits ↗</a>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- SPOTLIGHT AND FILTER RENDER SCRIPT -->
+    <script>
+        const SPOTLIGHT_DATABASE = [
+            {
+                title: "Monkey D. Luffy",
+                subtitle: "Gear 5 High-Fashion & Straw Hat Archive",
+                genreLabel: "Anime Universe",
+                url: "character.html?char=luffy",
+                image: "../assets/luffy/luffy.jpg",
+                tagLabel: "[ 01 // TAG ]"
+            },
+            {
+                title: "Roronoa Zoro",
+                subtitle: "Three-Sword Style & Dark Academia Layering",
+                genreLabel: "Anime Universe",
+                url: "character.html?char=zoro",
+                image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1000",
+                tagLabel: "[ 02 // TAG ]"
+            },
+            {
+                title: "Rachel Green",
+                subtitle: "90s NYC Sitcom Coffee Shop Casual",
+                genreLabel: "Shows Universe",
+                url: "character.html?char=racheal",
+                image: "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&q=80&w=1000",
+                tagLabel: "[ 03 // TAG ]"
+            }
+        ];
+
+        let spotlightIndex = 0;
+        let visibleLimit = 5; // Initial load set to exactly 5 cards for the single row
+        let filteredCache = [];
+
+        function initSpotlight() {
+            renderSpotlight();
+            setInterval(() => {
+                spotlightIndex = (spotlightIndex + 1) % SPOTLIGHT_DATABASE.length;
+                renderSpotlight();
+            }, 2000);
+        }
+
+        function renderSpotlight() {
+            const spot = SPOTLIGHT_DATABASE[spotlightIndex];
+            const container = document.getElementById('spotlight-card-container');
+            if(!container) return;
+            
+            container.innerHTML = `
+                <a href="${spot.url}" class="card-container relative group block bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 rounded-3xl p-4 shadow-[6px_6px_0px_0px_#2D2522] dark:shadow-[6px_6px_0px_0px_#71717A] hover:bg-petrol hover:text-taupeCream transition-all overflow-hidden flex flex-col justify-between h-full">
+                    <div class="absolute top-6 right-6 bg-taupeCream dark:bg-zinc-800 text-petrol group-hover:bg-tangerine group-hover:text-white dark:text-zinc-300 px-2.5 py-0.5 rounded text-[9px] font-mono font-bold uppercase border border-petrol dark:border-zinc-700 z-25 rotate-1 shadow-xs transition-colors">
+                        ${spot.tagLabel}
+                    </div>
+                    
+                    <div class="relative z-10 flex flex-col h-full justify-between">
+                        <div class="relative w-full h-56 sm:h-64 rounded-2xl overflow-hidden bg-white dark:bg-zinc-950 mb-4 border-2 border-petrol dark:border-zinc-700">
+                            <!-- IMAGE SLOT: Mannequin Asset -->
+                            <img src="${spot.image}" alt="${spot.title}" class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
+                            <div class="absolute top-3 left-3 bg-petrol text-taupeCream group-hover:bg-taupeCream group-hover:text-petrol backdrop-blur-md px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider border-2 border-petrol dark:border-zinc-600 shadow-sm transition-colors z-10">
+                                ${spot.genreLabel}
+                            </div>
+                        </div>
+                        <div class="flex items-center justify-between px-1">
+                            <div>
+                                <h3 class="font-bold text-base text-petrol group-hover:text-taupeCream dark:text-zinc-100 transition-colors font-punk">${spot.title}</h3>
+                                <p class="text-xs text-petrol/70 group-hover:text-taupeCream/80 dark:text-zinc-400 mt-0.5 font-medium">${spot.subtitle}</p>
+                            </div>
+                            <span class="text-xs font-mono font-bold uppercase tracking-widest text-tangerine group-hover:text-taupeCream group-hover:translate-x-1 transition-transform">
+                                Explore ↗
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            `;
+        }
+
+        function resetAndFilter() {
+            visibleLimit = 5;
+            applyMasterFilter();
+        }
+
+        function applyMasterFilter() {
+            const universeFilter = document.getElementById('filter-universe').value;
+            const genderFilter = document.getElementById('filter-gender').value;
+            const sortOrder = document.getElementById('sort-order').value;
+
+            filteredCache = (typeof MASTER_CATALOG !== 'undefined' ? MASTER_CATALOG : []).filter(item => {
+                let matchUniverse = true;
+                if (universeFilter === 'anime') {
+                    matchUniverse = (item.universe === 'anime');
+                } else if (universeFilter === 'onepiece') {
+                    matchUniverse = (item.universeLabel && item.universeLabel.toLowerCase().includes('one piece'));
+                } else if (universeFilter !== 'all') {
+                    matchUniverse = (item.universe === universeFilter);
+                }
+
+                const matchGender = (genderFilter === 'all' || item.gender === genderFilter || item.gender === 'unisex');
+                return matchUniverse && matchGender;
+            });
+
+            if (sortOrder === 'low-high') {
+                filteredCache.sort((a, b) => a.price - b.price);
+            } else if (sortOrder === 'high-low') {
+                filteredCache.sort((a, b) => b.price - a.price);
+            } else if (sortOrder === 'newest') {
+                filteredCache.sort((a, b) => new Date(b.dateAdded) - new Date(a.dateAdded));
+            }
+
+            renderOutfitFeed();
+        }
+
+        function loadMoreItems() {
+            visibleLimit += 5;
+            renderOutfitFeed();
+        }
+
+        function renderOutfitFeed() {
+            const feedContainer = document.getElementById('outfit-feed-grid');
+            const countEl = document.getElementById('feed-count');
+            const loadMoreBtn = document.getElementById('load-more-container');
+            if(!feedContainer) return;
+            
+            countEl.innerText = filteredCache.length;
+
+            if (filteredCache.length === 0) {
+                feedContainer.innerHTML = `<div class="col-span-full py-12 text-center font-mono text-xs text-petrol/60 dark:text-zinc-400 uppercase tracking-widest">No matching outfits found. Try adjusting your filters!</div>`;
+                loadMoreBtn.classList.add('hidden');
+                return;
+            }
+
+            const visibleItems = filteredCache.slice(0, visibleLimit);
+
+            feedContainer.innerHTML = visibleItems.map((item, idx) => `
+                <a href="${item.url}" class="card-container relative group bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 rounded-xl overflow-hidden shadow-[4px_4px_0px_0px_#2D2522] dark:shadow-[4px_4px_0px_0px_#71717A] hover:-translate-y-1 transition-all flex flex-col justify-between">
+                    <div class="relative z-10 flex flex-col h-full justify-between">
+                        <!-- TOP IMAGE CONTAINER WITH PURE WHITE STUDIO STAGE -->
+                        <div class="aspect-square bg-white dark:bg-zinc-950 relative overflow-hidden flex items-center justify-center p-2 border-b-2 border-petrol dark:border-zinc-700">
+                            <!-- IMAGE SLOT: Mannequin Asset -->
+                            <img src="${item.image}" alt="${item.title}" class="absolute inset-0 w-full h-full object-contain object-center p-2">
+                            <div class="absolute top-2 left-2 bg-petrol text-taupeCream group-hover:bg-taupeCream group-hover:text-petrol px-2 py-0.5 rounded-full text-[9px] font-mono font-bold uppercase border border-petrol dark:border-zinc-600 shadow-sm transition-colors z-10">
+                                ${item.universeLabel}
+                            </div>
+                        </div>
+                        <!-- BOTTOM PANEL -->
+                        <div class="p-3 flex items-center justify-between bg-cardLight dark:bg-cardObsidian group-hover:bg-petrol group-hover:text-taupeCream transition-colors duration-300 min-h-[90px]">
+                            <div class="flex flex-col justify-between h-full">
+                                <h3 class="font-bold text-xs sm:text-sm text-petrol dark:text-zinc-100 group-hover:text-taupeCream transition-colors leading-snug truncate">${item.title}</h3>
+                                <p class="text-[11px] font-extrabold text-tangerine group-hover:text-orange-300 mt-1 font-mono">${item.priceFormatted}</p>
+                            </div>
+                            <!-- AFFILIATE LINK SLOT -->
+                            <span class="text-[10px] font-mono font-bold text-tangerine group-hover:text-taupeCream transition-transform self-end">
+                                Shop ↗
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            `).join('');
+
+            if (visibleLimit < filteredCache.length) {
+                loadMoreBtn.classList.remove('hidden');
+            } else {
+                loadMoreBtn.classList.add('hidden');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            initSpotlight();
+        });
+    </script>
+
+    <!-- 1. LOAD CHARACTER DATA SCRIPTS -->
+    <script src="../js/data/anime/luffy.js"></script>
+
+    <!-- 2. LOAD CATALOG AGGREGATOR ENGINE -->
+    <script src="../js/catalog-aggregator.js"></script>
+
+    <!-- 3. LOAD SHARED GLOBAL AURA CONTROLLER -->
+    <script src="../js/script.js"></script>
+</body>
+</html>
