@@ -47,8 +47,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
-    <!-- External Custom Stylesheet -->
-    <link rel="stylesheet" href="../css/style.css">
+    <!-- FIXED PATH: External Custom Stylesheet in root/css -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-taupeCream text-petrol dark:bg-obsidian dark:text-zinc-100 min-h-screen selection:bg-tangerine selection:text-white font-sans antialiased overflow-x-hidden relative flex flex-col justify-between">
 
@@ -70,16 +70,16 @@
                 </div>
             </div>
 
-            <!-- UPGRADED NAVIGATION FONT SIZE (text-sm md:text-base) -->
+            <!-- FIXED PATHS: Navigation points to html/ subfolder -->
             <nav class="hidden md:flex items-center gap-6 text-sm md:text-base font-semibold uppercase tracking-wider text-petrol dark:text-zinc-300 font-mono">
                 <a href="index.html" class="text-tangerine font-bold transition-colors">Home</a>
-                <a href="anime.html" class="hover:text-tangerine transition-colors">Anime</a>
-                <a href="korean.html" class="hover:text-tangerine transition-colors">Korean</a>
-                <a href="shows.html" class="hover:text-tangerine transition-colors">Shows</a>
-                <a href="about.html" class="hover:text-tangerine transition-colors">About Us</a>
+                <a href="html/anime.html" class="hover:text-tangerine transition-colors">Anime</a>
+                <a href="html/korean.html" class="hover:text-tangerine transition-colors">Korean</a>
+                <a href="html/shows.html" class="hover:text-tangerine transition-colors">Shows</a>
+                <a href="html/about.html" class="hover:text-tangerine transition-colors">About Us</a>
             </nav>
 
-            <a href="about.html#contact" class="flex items-center gap-2 px-3.5 py-2 rounded-full bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 text-xs md:text-sm text-petrol dark:text-zinc-200 font-mono font-semibold hover:bg-tangerine hover:text-white transition-colors shadow-sm">
+            <a href="html/about.html#contact" class="flex items-center gap-2 px-3.5 py-2 rounded-full bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 text-xs md:text-sm text-petrol dark:text-zinc-200 font-mono font-semibold hover:bg-tangerine hover:text-white transition-colors shadow-sm">
                 Contact Us ↗
             </a>
         </header>
@@ -165,7 +165,7 @@
         <footer id="contact" class="border-t-2 border-petrol dark:border-zinc-700 pt-6 pb-8 flex flex-col md:flex-row items-center justify-between text-xs text-petrol dark:text-zinc-300 gap-6 font-semibold flex-shrink-0">
             <p>&copy; 2026 The Outfits. Curated Pop-Culture & On-Screen Fashion for India.</p>
             <div class="flex items-center gap-6 font-mono">
-                <a href="about.html" class="hover:text-tangerine transition-colors">About Us</a>
+                <a href="html/about.html" class="hover:text-tangerine transition-colors">About Us</a>
                 <span>•</span>
                 <a href="mailto:hello@theoutfits.in" class="hover:text-tangerine transition-colors">Email: hello@theoutfits.in ↗</a>
                 <span>•</span>
@@ -182,15 +182,15 @@
                 title: "Monkey D. Luffy",
                 subtitle: "Gear 5 High-Fashion & Straw Hat Archive",
                 genreLabel: "Anime Universe",
-                url: "character.html?char=luffy",
-                image: "../assets/luffy/luffy.jpg",
+                url: "html/character.html?char=luffy",
+                image: "assets/luffy/luffy.jpg",
                 tagLabel: "[ 01 // TAG ]"
             },
             {
                 title: "Roronoa Zoro",
                 subtitle: "Three-Sword Style & Dark Academia Layering",
                 genreLabel: "Anime Universe",
-                url: "character.html?char=zoro",
+                url: "html/character.html?char=zoro",
                 image: "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1000",
                 tagLabel: "[ 02 // TAG ]"
             },
@@ -198,7 +198,7 @@
                 title: "Rachel Green",
                 subtitle: "90s NYC Sitcom Coffee Shop Casual",
                 genreLabel: "Shows Universe",
-                url: "character.html?char=racheal",
+                url: "html/character.html?char=racheal",
                 image: "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&q=80&w=1000",
                 tagLabel: "[ 03 // TAG ]"
             }
@@ -343,13 +343,13 @@
         });
     </script>
 
-    <!-- 1. LOAD CHARACTER DATA SCRIPTS -->
-    <script src="/js/data/anime/luffy.js"></script>
+    <!-- FIXED PATHS: 1. LOAD CHARACTER DATA SCRIPTS -->
+    <script src="js/data/anime/luffy.js"></script>
 
-    <!-- 2. LOAD CATALOG AGGREGATOR ENGINE -->
-    <script src="/js/catalog-aggregator.js"></script>
+    <!-- FIXED PATHS: 2. LOAD CATALOG AGGREGATOR ENGINE -->
+    <script src="js/catalog-aggregator.js"></script>
 
-    <!-- 3. LOAD SHARED GLOBAL AURA CONTROLLER -->
-    <script src="/js/script.js"></script>
+    <!-- FIXED PATHS: 3. LOAD SHARED GLOBAL AURA CONTROLLER -->
+    <script src="js/script.js"></script>
 </body>
 </html>

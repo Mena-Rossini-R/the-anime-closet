@@ -10,6 +10,7 @@ let currentCharacterData = null;
 function initDynamicCharacterPage() {
     const urlParams = new URLSearchParams(window.location.search);
     const charKey = urlParams.get("char") || "luffy";
+    const targetLook = urlParams.get("look"); // Check if a specific look was requested in URL
 
     const dataRegistry = {
         luffy: typeof LUFFY_DATA !== "undefined" ? LUFFY_DATA : null,
@@ -40,7 +41,13 @@ function initDynamicCharacterPage() {
         `${Object.keys(currentCharacterData.looks).length} Total Looks Available`;
 
     lookKeysArray = Object.keys(currentCharacterData.looks);
-    renderCatalogGrid();
+
+    // If a specific look parameter is present and valid, open it directly!
+    if (targetLook && currentCharacterData.looks[targetLook]) {
+        openLookDetail(targetLook);
+    } else {
+        renderCatalogGrid();
+    }
 }
 
 function renderCatalogGrid() {
@@ -54,7 +61,6 @@ function renderCatalogGrid() {
     gridContainer.innerHTML = lookKeysArray.map(lookKey => {
                 const look = looksMap[lookKey];
 
-                // Calculate estimated total price from items array if available, or default to ₹799
                 let displayPrice = "₹799";
                 if (look.items && look.items.length > 0 && look.items[0].price) {
                     displayPrice = look.items[0].price;
@@ -73,15 +79,13 @@ function renderCatalogGrid() {
                         ${look.gender}
                     </div>
                 </div>
-                <!-- CARD FOOTER: Clean auto-wrapping flex layout with Estimated Price -->
+                <!-- CARD FOOTER -->
                 <div class="p-3.5 flex flex-col justify-between bg-cardLight text-petrol dark:bg-cardObsidian dark:text-zinc-100 group-hover:bg-petrol group-hover:text-taupeCream transition-colors duration-300 min-h-[105px]">
                     <div>
-                        <!-- Category Subtag (One Piece label removed entirely) -->
                         <span class="text-[9px] font-mono font-bold text-tangerine uppercase tracking-wider block mb-0.5 truncate">${look.category.toUpperCase()}</span>
                         <h3 class="font-bold text-xs sm:text-sm font-punk line-clamp-2 leading-tight">${look.title}</h3>
                     </div>
                     <div class="flex items-center justify-between pt-2 border-t border-petrol/10 dark:border-zinc-800 group-hover:border-taupeCream/20 mt-2">
-                        <!-- Estimated Price Tag replacing Look Label in footer -->
                         <span class="text-xs font-extrabold font-mono text-tangerine group-hover:text-orange-300">${displayPrice}</span>
                         <span class="text-xs font-mono font-bold text-tangerine group-hover:text-tangerine group-hover:translate-x-1 transition-transform">
                             View ↗
@@ -94,35 +98,40 @@ function renderCatalogGrid() {
 }
 
 function openLookDetail(lookKey) {
-  activeLookKey = lookKey;
-  currentIndex = lookKeysArray.indexOf(lookKey);
-  if (currentIndex === -1) currentIndex = 0;
+    activeLookKey = lookKey;
+    currentIndex = lookKeysArray.indexOf(lookKey);
+    if (currentIndex === -1) currentIndex = 0;
 
-  document.getElementById("catalog-view").classList.add("hidden");
-  document.getElementById("active-look-section").classList.remove("hidden");
+    // Update browser URL state without reloading page so users can copy/share specific look links
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.set('look', lookKey);
+    window.history.replaceState({}, '', `${window.location.pathname}?${urlParams.toString()}`);
 
-  const lookData = currentCharacterData.looks[lookKey];
-  if (!lookData) return;
+    document.getElementById("catalog-view").classList.add("hidden");
+    document.getElementById("active-look-section").classList.remove("hidden");
 
-  document.getElementById("active-look-tag").innerText =
-    `${lookData.lookLabel} • ${currentCharacterData.anime} Collection`;
-  document.getElementById("active-look-title").innerText = lookData.title;
+    const lookData = currentCharacterData.looks[lookKey];
+    if (!lookData) return;
 
-  const heroImg = document.getElementById("modal-model-img");
-  const placeholder = document.getElementById("modal-placeholder");
-  if (lookData.mannequinImg) {
-    heroImg.src = lookData.mannequinImg;
-    heroImg.classList.remove("hidden");
-    placeholder.classList.add("hidden");
-  } else {
-    heroImg.classList.add("hidden");
-    placeholder.classList.remove("hidden");
-  }
+    document.getElementById("active-look-tag").innerText =
+        `${lookData.lookLabel} • ${currentCharacterData.anime} Collection`;
+    document.getElementById("active-look-title").innerText = lookData.title;
 
-  const container = document.getElementById("modal-look-display");
-  container.innerHTML = lookData.items
-    .map(
-      (item) => `
+    const heroImg = document.getElementById("modal-model-img");
+    const placeholder = document.getElementById("modal-placeholder");
+    if (lookData.mannequinImg) {
+        heroImg.src = lookData.mannequinImg;
+        heroImg.classList.remove("hidden");
+        placeholder.classList.add("hidden");
+    } else {
+        heroImg.classList.add("hidden");
+        placeholder.classList.remove("hidden");
+    }
+
+    const container = document.getElementById("modal-look-display");
+    container.innerHTML = lookData.items
+        .map(
+            (item) => `
         <div class="bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 p-4 rounded-xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-sm hover:translate-x-1 transition-all duration-200">
             <div>
                 <!-- STORE BADGE SLOT -->
@@ -141,28 +150,33 @@ function openLookDetail(lookKey) {
             </div>
         </div>
     `,
-    )
-    .join("");
+        )
+        .join("");
 
-  window.scrollTo({ top: 100, behavior: "smooth" });
+    window.scrollTo({ top: 100, behavior: "smooth" });
 }
 
 function nextLook() {
-  currentIndex = (currentIndex + 1) % lookKeysArray.length;
-  openLookDetail(lookKeysArray[currentIndex]);
+    currentIndex = (currentIndex + 1) % lookKeysArray.length;
+    openLookDetail(lookKeysArray[currentIndex]);
 }
 
 function prevLook() {
-  currentIndex =
-    (currentIndex - 1 + lookKeysArray.length) % lookKeysArray.length;
-  openLookDetail(lookKeysArray[currentIndex]);
+    currentIndex =
+        (currentIndex - 1 + lookKeysArray.length) % lookKeysArray.length;
+    openLookDetail(lookKeysArray[currentIndex]);
 }
 
 function closeActiveLook() {
-  renderCatalogGrid();
-  window.scrollTo({ top: 0, behavior: "smooth" });
+    // Remove the 'look' parameter from URL when going back to all looks grid
+    const urlParams = new URLSearchParams(window.location.search);
+    urlParams.delete('look');
+    window.history.replaceState({}, '', `${window.location.pathname}?${urlParams.toString()}`);
+
+    renderCatalogGrid();
+    window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  initDynamicCharacterPage();
+    initDynamicCharacterPage();
 });

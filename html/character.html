@@ -64,7 +64,7 @@
                     ←
                 </a>
                 <div>
-                    <a href="index.html" class="font-bold text-sm sm:text-lg tracking-tight text-petrol dark:text-zinc-100 dark:font-punk">
+                    <a href="../index.html" class="font-bold text-sm sm:text-lg tracking-tight text-petrol dark:text-zinc-100 dark:font-punk">
                         The Outfits<span class="text-tangerine">.</span>
                     </a>
                     <p class="text-[9px] uppercase tracking-widest text-petrol/70 dark:text-zinc-400 font-mono font-semibold">Why Make It Boring? </p>
@@ -80,7 +80,7 @@
         <!-- MAIN LOOKBOOK CONTAINER -->
         <main class="flex-grow space-y-6 mb-8">
 
-            <!-- 1. COMPACT CHARACTER HEADER (Reduced footprint & redundant lines removed) -->
+            <!-- 1. COMPACT CHARACTER HEADER -->
             <div class="bg-petrol text-taupeCream border-2 border-petrol dark:border-zinc-700 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_0px_0px_#2D2522] dark:shadow-[4px_4px_0px_0px_#71717A] flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
                 <div class="space-y-0.5">
                     <span id="character-anime-tag" class="text-[10px] font-mono font-bold text-tangerine uppercase tracking-widest">Loading Collection...</span>
@@ -104,17 +104,14 @@
                 </div>
             </div>
 
-            <!-- 2. BENTO CATALOG GRID (5 Columns Compact Square Layout with Pure White Mannequin Stage) -->
+            <!-- 2. BENTO CATALOG GRID -->
             <div id="catalog-view">
                 <div class="flex items-center justify-between pb-2 mb-3 border-b-2 border-petrol/20 dark:border-zinc-800">
                     <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-petrol/70 dark:text-zinc-400">All Lookbook Options (Select to View)</h2>
                     <span class="text-[10px] font-mono text-tangerine font-bold uppercase">Ready to Shop</span>
                 </div>
 
-                <!-- 5-COL GRID -->
-                <div id="catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 items-stretch">
-                    <!-- Dynamically injected -->
-                </div>
+                <div id="catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 items-stretch"></div>
             </div>
 
             <!-- 3. ACTIVE LOOK DETAIL VIEW -->
@@ -139,7 +136,6 @@
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-                    <!-- IMAGE SLOT: Mannequin Asset on Pure White Stage -->
                     <div class="lg:col-span-5 bg-white dark:bg-zinc-950 border-2 border-petrol dark:border-zinc-700 rounded-2xl overflow-hidden h-[420px] flex items-center justify-center relative p-4">
                         <img id="modal-model-img" src="" alt="Lookbook Reference Model" class="absolute inset-0 w-full h-full object-contain object-center p-4 hidden">
                         <div id="modal-placeholder" class="space-y-2 text-center">
@@ -170,6 +166,7 @@
 
     </div>
 
+   
     <!-- SCRIPT TO HANDLE CHARACTER PREV/NEXT LINKS -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -186,6 +183,7 @@
                 const prevChar = characterRoster[(currentIndex - 1 + characterRoster.length) % characterRoster.length];
                 const nextChar = characterRoster[(currentIndex + 1) % characterRoster.length];
                 
+                // Keep links clean since we are already inside the html/ directory
                 prevBtn.href = `character.html?char=${prevChar}`;
                 nextBtn.href = `character.html?char=${nextChar}`;
             } else {
@@ -195,9 +193,10 @@
         });
     </script>
 
-    <script src="/js/data/anime/luffy.js"></script>
-    <script src="/js/data/anime/zoro.js"></script>
-    <script src="/js/dynamic_loader.js"></script>
-    <script src="/js/script.js"></script>
+    <!-- DATA & DYNAMIC LOADER SCRIPTS -->
+    <script src="../js/data/anime/luffy.js"></script>
+    <script src="../js/data/anime/zoro.js"></script>
+    <script src="../js/dynamic_loader.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 </html>

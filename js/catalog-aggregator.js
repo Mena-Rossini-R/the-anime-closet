@@ -32,7 +32,7 @@ function aggregateCharacterCatalogs() {
                 }
             }
 
-            // Push formatted item into the master feed
+            // Push formatted item into the master feed with the correct 'html/' subfolder prefix
             MASTER_CATALOG.push({
                 id: `${charKey}-${lookKey}`,
                 universe: charData.universe || "anime",
@@ -43,7 +43,7 @@ function aggregateCharacterCatalogs() {
                 price: rawPrice,
                 priceFormatted: priceStr,
                 dateAdded: look.dateAdded || "2026-10-01",
-                url: `character.html?char=${charKey}`,
+                url: `html/character.html?char=${charKey}&look=${lookKey}`,
                 image: look.mannequinImg
             });
         });
