@@ -79,11 +79,38 @@
                 <a href="about.html" class="hover:text-tangerine transition-colors">About Us</a>
             </nav>
 
-            <!-- CONTACT US BUTTON -->
-            <a href="about.html#contact" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 text-xs text-petrol dark:text-zinc-200 font-mono font-semibold hover:bg-tangerine hover:text-white transition-colors shadow-sm">
+            <!-- RIGHT ACTIONS (CONTACT + MOBILE HAMBURGER) -->
+            <div class="flex items-center gap-2">
+                <a href="about.html#contact" class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 text-xs text-petrol dark:text-zinc-200 font-mono font-semibold hover:bg-tangerine hover:text-white transition-colors shadow-sm">
+                    Contact Us ↗
+                </a>
+
+                <!-- MOBILE HAMBURGER BUTTON -->
+                <button 
+                    onclick="toggleMobileMenu()"
+                    class="md:hidden w-9 h-9 rounded-xl bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 flex flex-col items-center justify-center gap-1 text-petrol dark:text-zinc-200 shadow-sm focus:outline-none"
+                    aria-label="Toggle Menu"
+                >
+                    <span class="w-4 h-0.5 bg-current"></span>
+                    <span class="w-4 h-0.5 bg-current"></span>
+                    <span class="w-4 h-0.5 bg-current"></span>
+                </button>
+            </div>
+        </header>
+
+        <!-- MOBILE DROPDOWN MENU DRAWER -->
+        <div id="mobile-menu" class="hidden md:hidden bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 rounded-2xl p-5 mb-6 shadow-lg space-y-4 font-mono text-xs font-bold uppercase tracking-wider">
+            <nav class="flex flex-col space-y-3">
+                <a href="../index.html" class="py-2 border-b border-petrol/10 dark:border-zinc-800 text-petrol dark:text-zinc-200 hover:text-tangerine">Home</a>
+                <a href="anime.html" class="py-2 border-b border-petrol/10 dark:border-zinc-800 text-petrol dark:text-zinc-200 hover:text-tangerine">Anime</a>
+                <a href="korean.html" class="py-2 border-b border-petrol/10 dark:border-zinc-800 text-petrol dark:text-zinc-200 hover:text-tangerine">Korean</a>
+                <a href="shows.html" class="py-2 border-b border-petrol/10 dark:border-zinc-800 text-tangerine">Shows</a>
+                <a href="about.html" class="py-2 text-petrol dark:text-zinc-200 hover:text-tangerine">About Us</a>
+            </nav>
+            <a href="about.html#contact" class="block text-center py-2.5 rounded-xl bg-tangerine text-white shadow-sm">
                 Contact Us ↗
             </a>
-        </header>
+        </div>
 
         <!-- MAIN HUB CONTENT -->
         <main class="flex-grow space-y-6 mb-12">
@@ -114,17 +141,15 @@
                 <a href="character.html?char=racheal" 
                    class="card-container col-span-1 group block bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 rounded-2xl overflow-hidden shadow-[4px_4px_0px_0px_#2D2522] dark:shadow-[4px_4px_0px_0px_#71717A] hover:-translate-y-1 transition-all flex flex-col justify-between"
                    data-series="friends">
-                    <!-- IMAGE SLOT: Mannequin Asset -->
                     <div class="relative w-full aspect-square bg-white dark:bg-zinc-950 overflow-hidden flex items-center justify-center p-3 border-b-2 border-petrol dark:border-zinc-700">
                         <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1000" alt="Rachel Green Friends Lookbook" class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
                         <div class="absolute top-2 left-2 bg-[#2D2522] text-[#F7F4EE] px-2 py-0.5 rounded-full text-[9px] font-mono font-bold uppercase border border-petrol shadow-sm z-10">
                             Friends
                         </div>
                     </div>
-                    <!-- CARD FOOTER -->
                     <div class="p-3 flex items-center justify-between bg-cardLight dark:bg-cardObsidian group-hover:bg-petrol group-hover:text-taupeCream transition-colors duration-300">
                         <div>
-                            <h2 class="text-sm font-bold text-petrol group-hover:text-taupeCream transition-colors font-punk">Rachel Green</h2>
+                            <h2 class="text-sm font-bold text-petrol dark:text-zinc-100 group-hover:text-taupeCream transition-colors font-punk">Rachel Green</h2>
                         </div>
                         <span class="text-[10px] font-mono font-bold uppercase text-tangerine group-hover:text-taupeCream">Open ↗</span>
                     </div>
@@ -140,9 +165,9 @@
                     </div>
                     <div class="p-3 flex items-center justify-between bg-cardLight dark:bg-cardObsidian">
                         <div>
-                            <h2 class="text-sm font-bold text-petrol/80 font-punk">Euphoria Core</h2>
+                            <h2 class="text-sm font-bold text-petrol/80 dark:text-zinc-300 font-punk">Euphoria Core</h2>
                         </div>
-                        <span class="text-[10px] font-mono font-bold uppercase text-petrol/50">Soon ⌛</span>
+                        <span class="text-[10px] font-mono font-bold uppercase text-petrol/50 dark:text-zinc-500">Soon ⌛</span>
                     </div>
                 </div>
 
@@ -156,9 +181,9 @@
                     </div>
                     <div class="p-3 flex items-center justify-between bg-cardLight dark:bg-cardObsidian">
                         <div>
-                            <h2 class="text-sm font-bold text-petrol/80 font-punk">Waystar Royco</h2>
+                            <h2 class="text-sm font-bold text-petrol/80 dark:text-zinc-300 font-punk">Waystar Royco</h2>
                         </div>
-                        <span class="text-[10px] font-mono font-bold uppercase text-petrol/50">Soon ⌛</span>
+                        <span class="text-[10px] font-mono font-bold uppercase text-petrol/50 dark:text-zinc-500">Soon ⌛</span>
                     </div>
                 </div>
 
@@ -180,7 +205,7 @@
 
     </div>
 
-    <!-- FILTER SCRIPT CONTROLLER -->
+    <!-- FILTER & MOBILE MENU SCRIPT CONTROLLERS -->
     <script>
         function filterShows(series) {
             const cards = document.querySelectorAll('#shows-grid > div, #shows-grid > a');
@@ -192,9 +217,13 @@
                 }
             });
         }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
     </script>
 
-    <!-- FIXED PATH: External Custom JavaScript Controller -->
     <script src="../js/script.js"></script>
 </body>
 </html>

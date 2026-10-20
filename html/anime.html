@@ -57,17 +57,17 @@
     class="bg-taupeCream text-petrol dark:bg-obsidian dark:text-zinc-100 min-h-screen selection:bg-tangerine selection:text-white font-sans antialiased overflow-x-hidden relative flex flex-col justify-between"
   >
     <!-- MAIN WRAPPER -->
-    <div
-      class="relative z-10 flex flex-col min-h-screen px-6 md:px-12 py-6 w-full">
+    <div class="relative z-10 flex flex-col min-h-screen px-6 md:px-12 py-6 w-full">
+      
       <!-- HEADER / NAVIGATION -->
       <header
         class="flex items-center justify-between border-b-2 border-petrol dark:border-zinc-700 pb-4 mb-6 sticky top-0 z-50 bg-taupeCream/90 dark:bg-obsidian/90 backdrop-blur-md"
       >
         <div class="flex items-center gap-3">
           <!-- BRAND LOGO SLOT IN RICH COCOA -->
-            <div class="w-9 h-9 rounded-xl bg-petrol flex items-center justify-center text-white font-bold text-sm tracking-wider shadow-md border-2 border-petrol dark:border-zinc-500">
-                TO
-            </div>
+          <div class="w-9 h-9 rounded-xl bg-petrol flex items-center justify-center text-white font-bold text-sm tracking-wider shadow-md border-2 border-petrol dark:border-zinc-500">
+              TO
+          </div>
           <div>
             <a
               href="../index.html"
@@ -94,14 +94,41 @@
           <a href="about.html" class="hover:text-tangerine transition-colors">About Us</a>
         </nav>
 
-        <!-- CONTACT US BUTTON -->
-        <a
-          href="about.html#contact"
-          class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 text-xs text-petrol dark:text-zinc-200 font-mono font-semibold hover:bg-tangerine hover:text-white transition-colors shadow-sm"
-        >
+        <!-- RIGHT ACTIONS (CONTACT + MOBILE HAMBURGER) -->
+        <div class="flex items-center gap-2">
+          <a
+            href="about.html#contact"
+            class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 text-xs text-petrol dark:text-zinc-200 font-mono font-semibold hover:bg-tangerine hover:text-white transition-colors shadow-sm"
+          >
+            Contact Us ↗
+          </a>
+
+          <!-- MOBILE HAMBURGER BUTTON -->
+          <button 
+            onclick="toggleMobileMenu()"
+            class="md:hidden w-9 h-9 rounded-xl bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 flex flex-col items-center justify-center gap-1 text-petrol dark:text-zinc-200 shadow-sm focus:outline-none"
+            aria-label="Toggle Menu"
+          >
+            <span class="w-4 h-0.5 bg-current"></span>
+            <span class="w-4 h-0.5 bg-current"></span>
+            <span class="w-4 h-0.5 bg-current"></span>
+          </button>
+        </div>
+      </header>
+
+      <!-- MOBILE DROPDOWN MENU DRAWER -->
+      <div id="mobile-menu" class="hidden md:hidden bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 rounded-2xl p-5 mb-6 shadow-lg space-y-4 font-mono text-xs font-bold uppercase tracking-wider">
+        <nav class="flex flex-col space-y-3">
+          <a href="../index.html" class="py-2 border-b border-petrol/10 dark:border-zinc-800 text-petrol dark:text-zinc-200 hover:text-tangerine">Home</a>
+          <a href="anime.html" class="py-2 border-b border-petrol/10 dark:border-zinc-800 text-tangerine">Anime</a>
+          <a href="korean.html" class="py-2 border-b border-petrol/10 dark:border-zinc-800 text-petrol dark:text-zinc-200 hover:text-tangerine">Korean</a>
+          <a href="shows.html" class="py-2 border-b border-petrol/10 dark:border-zinc-800 text-petrol dark:text-zinc-200 hover:text-tangerine">Shows</a>
+          <a href="about.html" class="py-2 text-petrol dark:text-zinc-200 hover:text-tangerine">About Us</a>
+        </nav>
+        <a href="about.html#contact" class="block text-center py-2.5 rounded-xl bg-tangerine text-white shadow-sm">
           Contact Us ↗
         </a>
-      </header>
+      </div>
 
       <!-- MAIN HUB CONTENT -->
       <main class="flex-grow space-y-6 mb-12">
@@ -152,7 +179,6 @@
             class="card-container col-span-1 group block bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 rounded-2xl overflow-hidden shadow-[4px_4px_0px_0px_#2D2522] dark:shadow-[4px_4px_0px_0px_#71717A] hover:-translate-y-1 transition-all flex flex-col justify-between"
             data-franchise="onepiece"
           >
-            <!-- IMAGE SLOT: Mannequin Asset -->
             <div
               class="relative w-full aspect-square bg-white dark:bg-zinc-950 overflow-hidden flex items-center justify-center p-3 border-b-2 border-petrol dark:border-zinc-700"
             >
@@ -167,13 +193,12 @@
                 One Piece
               </div>
             </div>
-            <!-- CARD FOOTER -->
             <div
               class="p-3 flex items-center justify-between bg-cardLight dark:bg-cardObsidian group-hover:bg-petrol group-hover:text-taupeCream transition-colors duration-300"
             >
               <div>
                 <h2
-                  class="text-sm font-bold text-petrol group-hover:text-taupeCream transition-colors font-punk"
+                  class="text-sm font-bold text-petrol dark:text-zinc-100 group-hover:text-taupeCream transition-colors font-punk"
                 >
                   Luffy
                 </h2>
@@ -191,7 +216,6 @@
             class="card-container col-span-1 group block bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 rounded-2xl overflow-hidden shadow-[4px_4px_0px_0px_#2D2522] dark:shadow-[4px_4px_0px_0px_#71717A] hover:-translate-y-1 transition-all flex flex-col justify-between"
             data-franchise="onepiece"
           >
-            <!-- IMAGE SLOT: Mannequin Asset -->
             <div
               class="relative w-full aspect-square bg-white dark:bg-zinc-950 overflow-hidden flex items-center justify-center p-3 border-b-2 border-petrol dark:border-zinc-700"
             >
@@ -206,13 +230,12 @@
                 One Piece
               </div>
             </div>
-            <!-- CARD FOOTER -->
             <div
               class="p-3 flex items-center justify-between bg-cardLight dark:bg-cardObsidian group-hover:bg-petrol group-hover:text-taupeCream transition-colors duration-300"
             >
               <div>
                 <h2
-                  class="text-sm font-bold text-petrol group-hover:text-taupeCream transition-colors font-punk"
+                  class="text-sm font-bold text-petrol dark:text-zinc-100 group-hover:text-taupeCream transition-colors font-punk"
                 >
                   Zoro
                 </h2>
@@ -229,7 +252,6 @@
             class="card-container col-span-1 group block bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 rounded-2xl overflow-hidden shadow-[4px_4px_0px_0px_#2D2522] dark:shadow-[4px_4px_0px_0px_#71717A] hover:-translate-y-1 transition-all flex flex-col justify-between opacity-80"
             data-franchise="onepiece"
           >
-            <!-- IMAGE SLOT: Mannequin Asset -->
             <div
               class="relative w-full aspect-square bg-white dark:bg-zinc-950 overflow-hidden flex items-center justify-center p-3 border-b-2 border-petrol dark:border-zinc-700"
             >
@@ -244,17 +266,16 @@
                 One Piece
               </div>
             </div>
-            <!-- CARD FOOTER -->
             <div
               class="p-3 flex items-center justify-between bg-cardLight dark:bg-cardObsidian"
             >
               <div>
-                <h2 class="text-sm font-bold text-petrol/80 font-punk">
+                <h2 class="text-sm font-bold text-petrol/80 dark:text-zinc-300 font-punk">
                   Sanji
                 </h2>
               </div>
               <span
-                class="text-[10px] font-mono font-bold uppercase text-petrol/50"
+                class="text-[10px] font-mono font-bold uppercase text-petrol/50 dark:text-zinc-500"
                 >Soon ⌛</span
               >
             </div>
@@ -265,7 +286,6 @@
             class="card-container col-span-1 group block bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 rounded-2xl overflow-hidden shadow-[4px_4px_0px_0px_#2D2522] dark:shadow-[4px_4px_0px_0px_#71717A] hover:-translate-y-1 transition-all flex flex-col justify-between opacity-80"
             data-franchise="naruto"
           >
-            <!-- IMAGE SLOT: Mannequin Asset -->
             <div
               class="relative w-full aspect-square bg-white dark:bg-zinc-950 overflow-hidden flex items-center justify-center p-3 border-b-2 border-petrol dark:border-zinc-700"
             >
@@ -280,17 +300,16 @@
                 Naruto
               </div>
             </div>
-            <!-- CARD FOOTER -->
             <div
               class="p-3 flex items-center justify-between bg-cardLight dark:bg-cardObsidian"
             >
               <div>
-                <h2 class="text-sm font-bold text-petrol/80 font-punk">
+                <h2 class="text-sm font-bold text-petrol/80 dark:text-zinc-300 font-punk">
                   Naruto
                 </h2>
               </div>
               <span
-                class="text-[10px] font-mono font-bold uppercase text-petrol/50"
+                class="text-[10px] font-mono font-bold uppercase text-petrol/50 dark:text-zinc-500"
                 >Soon ⌛</span
               >
             </div>
@@ -301,7 +320,6 @@
             class="card-container col-span-1 group block bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 rounded-2xl overflow-hidden shadow-[4px_4px_0px_0px_#2D2522] dark:shadow-[4px_4px_0px_0px_#71717A] hover:-translate-y-1 transition-all flex flex-col justify-between opacity-80"
             data-franchise="jjk"
           >
-            <!-- IMAGE SLOT: Mannequin Asset -->
             <div
               class="relative w-full aspect-square bg-white dark:bg-zinc-950 overflow-hidden flex items-center justify-center p-3 border-b-2 border-petrol dark:border-zinc-700"
             >
@@ -316,55 +334,19 @@
                 Jujutsu Kaisen
               </div>
             </div>
-            <!-- CARD FOOTER -->
             <div
               class="p-3 flex items-center justify-between bg-cardLight dark:bg-cardObsidian"
             >
               <div>
-                <h2 class="text-sm font-bold text-petrol/80 font-punk">Gojo</h2>
+                <h2 class="text-sm font-bold text-petrol/80 dark:text-zinc-300 font-punk">Gojo</h2>
               </div>
               <span
-                class="text-[10px] font-mono font-bold uppercase text-petrol/50"
+                class="text-[10px] font-mono font-bold uppercase text-petrol/50 dark:text-zinc-500"
                 >Soon ⌛</span
               >
             </div>
           </div>
 
-          <!-- CHARACTER CARD 6: DENJI -->
-          <div
-            class="card-container col-span-1 group block bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 rounded-2xl overflow-hidden shadow-[4px_4px_0px_0px_#2D2522] dark:shadow-[4px_4px_0px_0px_#71717A] hover:-translate-y-1 transition-all flex flex-col justify-between opacity-80"
-            data-franchise="csm"
-          >
-            <!-- IMAGE SLOT: Mannequin Asset -->
-            <div
-              class="relative w-full aspect-square bg-white dark:bg-zinc-950 overflow-hidden flex items-center justify-center p-3 border-b-2 border-petrol dark:border-zinc-700"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&q=80&w=1000"
-                alt="Denji"
-                class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-              />
-              <div
-                class="absolute top-2 left-2 bg-[#2D2522] text-[#F7F4EE] px-2 py-0.5 rounded-full text-[9px] font-mono font-bold uppercase border border-petrol shadow-sm z-10"
-              >
-                Chainsaw Man
-              </div>
-            </div>
-            <!-- CARD FOOTER -->
-            <div
-              class="p-3 flex items-center justify-between bg-cardLight dark:bg-cardObsidian"
-            >
-              <div>
-                <h2 class="text-sm font-bold text-petrol/80 font-punk">
-                  Denji
-                </h2>
-              </div>
-              <span
-                class="text-[10px] font-mono font-bold uppercase text-petrol/50"
-                >Soon ⌛</span
-              >
-            </div>
-          </div>
         </div>
       </main>
 
@@ -398,7 +380,7 @@
       </footer>
     </div>
 
-    <!-- FILTER SCRIPT CONTROLLER -->
+    <!-- FILTER & MOBILE MENU SCRIPT CONTROLLERS -->
     <script>
       function filterAnime(franchise) {
         const panels = document.querySelectorAll(
@@ -414,6 +396,11 @@
             panel.style.display = "none";
           }
         });
+      }
+
+      function toggleMobileMenu() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
       }
     </script>
 

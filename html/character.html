@@ -1,196 +1,357 @@
-<!DOCTYPE html>
+<!doctype html>
 <!-- 
     THE ANIME CLOSET - UNIVERSAL CHARACTER TEMPLATE (`character.html`)
     - Single reusable template driven dynamically via URL parameters (e.g. character.html?char=luffy)
     - 5-Column Compact Grid Layout & Character Next/Prev Navigation
-    - Peaceful Milk-Cream & Rich Cocoa Editorial Zine Styling
+    - Scroll Position Memory Preservation on Back Click
 -->
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Character Lookbook | The Outfit</title>
-    
+
     <!-- CRITICAL: Synchronous Theme Detector in Head prevents white flash in dark mode -->
     <script>
-        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            document.documentElement.classList.add('dark');
-        }
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        document.documentElement.classList.add("dark");
+      }
     </script>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    colors: {
-                        taupeCream: '#F7F4EE',
-                        cardLight: '#FFFFFF',
-                        petrol: '#2D2522',
-                        obsidian: '#121212',
-                        cardObsidian: '#1A1A1A',
-                        tangerine: '#D96B43',
-                    },
-                    fontFamily: {
-                        sans: ['"Inter"', 'sans-serif'],
-                        punk: ['"Syne"', '"Space Grotesk"', 'sans-serif'],
-                        editorial: ['"Playfair Display"', 'Georgia', 'serif']
-                    }
-                }
-            }
-        }
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              taupeCream: "#F7F4EE",
+              cardLight: "#FFFFFF",
+              petrol: "#2D2522",
+              obsidian: "#121212",
+              cardObsidian: "#1A1A1A",
+              tangerine: "#D96B43",
+            },
+            fontFamily: {
+              sans: ['"Inter"', "sans-serif"],
+              punk: ['"Syne"', '"Space Grotesk"', "sans-serif"],
+              editorial: ['"Playfair Display"', "Georgia", "serif"],
+            },
+          },
+        },
+      };
     </script>
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,400&family=Syne:wght@700;800&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- External Custom Stylesheet -->
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-<body class="bg-taupeCream text-petrol dark:bg-obsidian dark:text-zinc-100 min-h-screen selection:bg-tangerine selection:text-white font-sans antialiased overflow-x-hidden relative flex flex-col justify-between">
-
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body
+    class="bg-taupeCream text-petrol dark:bg-obsidian dark:text-zinc-100 min-h-screen selection:bg-tangerine selection:text-white font-sans antialiased overflow-x-hidden relative flex flex-col justify-between"
+  >
     <!-- MAIN WRAPPER -->
-    <div class="relative z-10 flex flex-col min-h-screen px-6 md:px-12 py-6 w-full">
+    <div
+      class="relative z-10 flex flex-col min-h-screen px-6 md:px-12 py-6 w-full"
+    >
+      <!-- STICKY HEADER NAVIGATION -->
+      <header
+        class="flex items-center justify-between border-b-2 border-petrol dark:border-zinc-700 pb-3 mb-6 sticky top-0 z-50 bg-taupeCream/90 dark:bg-obsidian/90 backdrop-blur-md"
+      >
+        <div class="flex items-center gap-3">
+          <!-- Dynamic Back Button -->
+          <a
+            id="top-back-btn"
+            href="anime.html"
+            class="w-8 h-8 rounded-xl bg-tangerine flex items-center justify-center text-white font-bold text-sm tracking-wider shadow-md border-2 border-petrol dark:border-zinc-500 hover:scale-105 transition-transform"
+            title="Back"
+          >
+            ←
+          </a>
+          <div>
+            <a
+              href="../index.html"
+              class="font-bold text-sm sm:text-lg tracking-tight text-petrol dark:text-zinc-100 dark:font-punk"
+            >
+              The Outfits<span class="text-tangerine">.</span>
+            </a>
+            <p
+              class="text-[9px] uppercase tracking-widest text-petrol/70 dark:text-zinc-400 font-mono font-semibold"
+            >
+              Why Make It Boring?
+            </p>
+          </div>
+        </div>
 
-        <!-- STICKY HEADER NAVIGATION -->
-        <header class="flex items-center justify-between border-b-2 border-petrol dark:border-zinc-700 pb-3 mb-6 sticky top-0 z-50 bg-taupeCream/90 dark:bg-obsidian/90 backdrop-blur-md">
-            <div class="flex items-center gap-3">
-                <!-- Back button now correctly points to anime.html -->
-                <a href="anime.html" class="w-8 h-8 rounded-xl bg-tangerine flex items-center justify-center text-white font-bold text-sm tracking-wider shadow-md border-2 border-petrol dark:border-zinc-500 hover:scale-105 transition-transform" title="Back to Anime Hub">
-                    ←
-                </a>
-                <div>
-                    <a href="../index.html" class="font-bold text-sm sm:text-lg tracking-tight text-petrol dark:text-zinc-100 dark:font-punk">
-                        The Outfits<span class="text-tangerine">.</span>
-                    </a>
-                    <p class="text-[9px] uppercase tracking-widest text-petrol/70 dark:text-zinc-400 font-mono font-semibold">Why Make It Boring? </p>
-                </div>
+        <!-- Top Right Collection Pill Badge -->
+        <div
+          id="header-franchise-badge"
+          class="px-3 py-1.5 rounded-full bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 text-[10px] sm:text-xs font-mono font-bold tracking-wider text-petrol dark:text-zinc-200 shadow-sm"
+        >
+          Anime Hub 🏴‍☠️
+        </div>
+      </header>
+
+      <!-- MAIN LOOKBOOK CONTAINER -->
+      <main class="flex-grow space-y-6 mb-8">
+        <!-- 1. COMPACT CHARACTER HEADER -->
+        <div
+          class="bg-petrol text-taupeCream border-2 border-petrol dark:border-zinc-700 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_0px_0px_#2D2522] dark:shadow-[4px_4px_0px_0px_#71717A] flex flex-col md:flex-row justify-between items-start md:items-center gap-3"
+        >
+          <div class="space-y-0.5">
+            <span
+              id="character-anime-tag"
+              class="text-[10px] font-mono font-bold text-tangerine uppercase tracking-widest"
+              >Loading Collection...</span
+            >
+            <h1
+              id="character-title"
+              class="text-xl sm:text-3xl font-bold tracking-tight text-taupeCream font-punk"
+            >
+              Loading Character...
+            </h1>
+            <p
+              id="character-subtitle"
+              class="text-xs text-taupeCream/80 font-medium"
+            >
+              Please wait while lookbook assets are parsed.
+            </p>
+          </div>
+
+          <div class="flex items-center gap-3 flex-wrap">
+            <!-- CHARACTER JUMP NAV BUTTONS -->
+            <div class="flex items-center gap-2">
+              <a
+                id="prev-char-btn"
+                href="#"
+                class="px-2.5 py-1 rounded-lg bg-taupeCream/10 hover:bg-tangerine text-taupeCream border border-taupeCream/30 text-[11px] font-mono font-bold uppercase transition-colors"
+              >
+                &larr; Prev
+              </a>
+              <a
+                id="next-char-btn"
+                href="#"
+                class="px-2.5 py-1 rounded-lg bg-taupeCream/10 hover:bg-tangerine text-taupeCream border border-taupeCream/30 text-[11px] font-mono font-bold uppercase transition-colors"
+              >
+                Next &rarr;
+              </a>
+            </div>
+            <div
+              id="total-looks-badge"
+              class="px-2.5 py-1 rounded-lg bg-taupeCream text-petrol border-2 border-petrol text-[11px] font-mono font-bold shadow-sm whitespace-nowrap"
+            >
+              Loading...
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. BENTO CATALOG GRID -->
+        <div id="catalog-view">
+          <div
+            class="flex items-center justify-between pb-2 mb-3 border-b-2 border-petrol/20 dark:border-zinc-800"
+          >
+            <h2
+              class="text-xs font-mono font-bold uppercase tracking-wider text-petrol/70 dark:text-zinc-400"
+            >
+              All Lookbook Options (Select to View)
+            </h2>
+            <span
+              class="text-[10px] font-mono text-tangerine font-bold uppercase"
+              >Ready to Shop</span
+            >
+          </div>
+
+          <div
+            id="catalog-grid"
+            class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 items-stretch"
+          ></div>
+        </div>
+
+        <!-- 3. ACTIVE LOOK DETAIL VIEW -->
+        <div
+          id="active-look-section"
+          class="hidden bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 p-5 sm:p-6 rounded-3xl shadow-[6px_6px_0px_0px_#2D2522] dark:shadow-[6px_6px_0px_0px_#71717A] space-y-6"
+        >
+          <div
+            class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b-2 border-petrol/20 dark:border-zinc-800 pb-4"
+          >
+            <div>
+              <span
+                id="active-look-tag"
+                class="text-xs font-mono font-bold text-tangerine uppercase tracking-widest"
+                >Look 01</span
+              >
+              <h3
+                id="active-look-title"
+                class="text-xl sm:text-2xl font-bold font-punk text-petrol dark:text-zinc-100 mt-0.5"
+              >
+                Look Title
+              </h3>
             </div>
 
-            <!-- Top Right Collection Pill Badge -->
-            <div id="header-franchise-badge" class="px-3 py-1.5 rounded-full bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 text-[10px] sm:text-xs font-mono font-bold tracking-wider text-petrol dark:text-zinc-200 shadow-sm">
-                Anime Hub 🏴‍☠️
+            <div class="flex items-center gap-2 flex-wrap">
+              <button
+                onclick="prevLook()"
+                class="px-3 py-2 rounded-xl border-2 border-petrol dark:border-zinc-600 text-xs font-mono font-bold uppercase tracking-wider hover:bg-tangerine hover:text-white transition-colors shadow-sm"
+                title="Previous Look"
+              >
+                &lt; Prev Look
+              </button>
+              <button
+                id="back-to-catalog-btn"
+                class="px-4 py-2 rounded-xl border-2 border-petrol dark:border-zinc-600 text-xs font-mono font-bold uppercase tracking-wider hover:bg-petrol hover:text-white transition-colors shadow-sm"
+              >
+                ← Back to All Looks
+              </button>
+              <button
+                onclick="nextLook()"
+                class="px-3 py-2 rounded-xl border-2 border-petrol dark:border-zinc-600 text-xs font-mono font-bold uppercase tracking-wider hover:bg-tangerine hover:text-white transition-colors shadow-sm"
+                title="Next Look"
+              >
+                Next Look &gt;
+              </button>
             </div>
-        </header>
+          </div>
 
-        <!-- MAIN LOOKBOOK CONTAINER -->
-        <main class="flex-grow space-y-6 mb-8">
-
-            <!-- 1. COMPACT CHARACTER HEADER -->
-            <div class="bg-petrol text-taupeCream border-2 border-petrol dark:border-zinc-700 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_0px_0px_#2D2522] dark:shadow-[4px_4px_0px_0px_#71717A] flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
-                <div class="space-y-0.5">
-                    <span id="character-anime-tag" class="text-[10px] font-mono font-bold text-tangerine uppercase tracking-widest">Loading Collection...</span>
-                    <h1 id="character-title" class="text-xl sm:text-3xl font-bold tracking-tight text-taupeCream font-punk">Loading Character...</h1>
-                    <p id="character-subtitle" class="text-xs text-taupeCream/80 font-medium">Please wait while lookbook assets are parsed.</p>
-                </div>
-                
-                <div class="flex items-center gap-3 flex-wrap">
-                    <!-- CHARACTER JUMP NAV BUTTONS -->
-                    <div class="flex items-center gap-2">
-                        <a id="prev-char-btn" href="#" class="px-2.5 py-1 rounded-lg bg-taupeCream/10 hover:bg-tangerine text-taupeCream border border-taupeCream/30 text-[11px] font-mono font-bold uppercase transition-colors">
-                            &larr; Prev
-                        </a>
-                        <a id="next-char-btn" href="#" class="px-2.5 py-1 rounded-lg bg-taupeCream/10 hover:bg-tangerine text-taupeCream border border-taupeCream/30 text-[11px] font-mono font-bold uppercase transition-colors">
-                            Next &rarr;
-                        </a>
-                    </div>
-                    <div id="total-looks-badge" class="px-2.5 py-1 rounded-lg bg-taupeCream text-petrol border-2 border-petrol text-[11px] font-mono font-bold shadow-sm whitespace-nowrap">
-                        Loading...
-                    </div>
-                </div>
-            </div>
-
-            <!-- 2. BENTO CATALOG GRID -->
-            <div id="catalog-view">
-                <div class="flex items-center justify-between pb-2 mb-3 border-b-2 border-petrol/20 dark:border-zinc-800">
-                    <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-petrol/70 dark:text-zinc-400">All Lookbook Options (Select to View)</h2>
-                    <span class="text-[10px] font-mono text-tangerine font-bold uppercase">Ready to Shop</span>
-                </div>
-
-                <div id="catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 items-stretch"></div>
-            </div>
-
-            <!-- 3. ACTIVE LOOK DETAIL VIEW -->
-            <div id="active-look-section" class="hidden bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 p-5 sm:p-6 rounded-3xl shadow-[6px_6px_0px_0px_#2D2522] dark:shadow-[6px_6px_0px_0px_#71717A] space-y-6">
-                <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b-2 border-petrol/20 dark:border-zinc-800 pb-4">
-                    <div>
-                        <span id="active-look-tag" class="text-xs font-mono font-bold text-tangerine uppercase tracking-widest">Look 01</span>
-                        <h3 id="active-look-title" class="text-xl sm:text-2xl font-bold font-punk text-petrol dark:text-zinc-100 mt-0.5">Look Title</h3>
-                    </div>
-                    
-                    <div class="flex items-center gap-2 flex-wrap">
-                        <button onclick="prevLook()" class="px-3 py-2 rounded-xl border-2 border-petrol dark:border-zinc-600 text-xs font-mono font-bold uppercase tracking-wider hover:bg-tangerine hover:text-white transition-colors shadow-sm" title="Previous Look">
-                            &lt; Prev Look
-                        </button>
-                        <button onclick="closeActiveLook()" class="px-4 py-2 rounded-xl border-2 border-petrol dark:border-zinc-600 text-xs font-mono font-bold uppercase tracking-wider hover:bg-petrol hover:text-white transition-colors shadow-sm">
-                            ← Back to All Looks
-                        </button>
-                        <button onclick="nextLook()" class="px-3 py-2 rounded-xl border-2 border-petrol dark:border-zinc-600 text-xs font-mono font-bold uppercase tracking-wider hover:bg-tangerine hover:text-white transition-colors shadow-sm" title="Next Look">
-                            Next Look &gt;
-                        </button>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-                    <div class="lg:col-span-5 bg-white dark:bg-zinc-950 border-2 border-petrol dark:border-zinc-700 rounded-2xl overflow-hidden h-[420px] flex items-center justify-center relative p-4">
-                        <img id="modal-model-img" src="" alt="Lookbook Reference Model" class="absolute inset-0 w-full h-full object-contain object-center p-4 hidden">
-                        <div id="modal-placeholder" class="space-y-2 text-center">
-                            <span class="text-4xl">🧥</span>
-                            <p class="text-xs font-mono font-bold text-petrol/70 dark:text-zinc-400">No Preview Asset</p>
-                        </div>
-                    </div>
-
-                    <div class="lg:col-span-7 flex flex-col space-y-3">
-                        <div id="modal-look-display" class="space-y-3"></div>
-                    </div>
-                </div>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            <div
+              class="lg:col-span-5 bg-white dark:bg-zinc-950 border-2 border-petrol dark:border-zinc-700 rounded-2xl overflow-hidden h-[420px] flex items-center justify-center relative p-4"
+            >
+              <img
+                id="modal-model-img"
+                src=""
+                alt="Lookbook Reference Model"
+                class="absolute inset-0 w-full h-full object-contain object-center p-4 hidden"
+              />
+              <div id="modal-placeholder" class="space-y-2 text-center">
+                <span class="text-4xl">🧥</span>
+                <p
+                  class="text-xs font-mono font-bold text-petrol/70 dark:text-zinc-400"
+                >
+                  No Preview Asset
+                </p>
+              </div>
             </div>
 
-        </main>
-
-        <!-- FOOTER -->
-        <footer class="border-t-2 border-petrol dark:border-zinc-700 pt-4 pb-4 flex flex-col md:flex-row items-center justify-between text-xs text-petrol dark:text-zinc-300 gap-4 font-semibold flex-shrink-0">
-            <p>&copy; 2026 The Outfits. Curated Pop-Culture & On-Screen Fashion for India.</p>
-            <div class="flex items-center gap-6 font-mono">
-                <a href="about.html" class="hover:text-tangerine transition-colors">About Us</a>
-                <span>•</span>
-                <a href="mailto:hello@theoutfits.in" class="hover:text-tangerine transition-colors">Email: hello@theoutfits.in ↗</a>
-                <span>•</span>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-tangerine transition-colors">Instagram: @theoutfits ↗</a>
+            <div class="lg:col-span-7 flex flex-col space-y-3">
+              <div id="modal-look-display" class="space-y-3"></div>
             </div>
-        </footer>
+          </div>
+        </div>
+      </main>
 
+      <!-- FOOTER -->
+      <footer
+        class="border-t-2 border-petrol dark:border-zinc-700 pt-4 pb-4 flex flex-col md:flex-row items-center justify-between text-xs text-petrol dark:text-zinc-300 gap-4 font-semibold flex-shrink-0"
+      >
+        <p>
+          &copy; 2026 The Outfits. Curated Pop-Culture & On-Screen Fashion for
+          India.
+        </p>
+        <div class="flex items-center gap-6 font-mono">
+          <a href="about.html" class="hover:text-tangerine transition-colors"
+            >About Us</a
+          >
+          <span>•</span>
+          <a
+            href="mailto:hello@theoutfits.in"
+            class="hover:text-tangerine transition-colors"
+            >Email: hello@theoutfits.in ↗</a
+          >
+          <span>•</span>
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="hover:text-tangerine transition-colors"
+            >Instagram: @theoutfits ↗</a
+          >
+        </div>
+      </footer>
     </div>
 
-   
-    <!-- SCRIPT TO HANDLE CHARACTER PREV/NEXT LINKS -->
+    <!-- SCRIPT FOR SCROLL POSITION PRESERVATION & DYNAMIC NAV -->
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const params = new URLSearchParams(window.location.search);
-            const currentChar = params.get('char') || 'luffy';
-            
-            const characterRoster = ['luffy', 'zoro'];
-            const currentIndex = characterRoster.indexOf(currentChar);
-            
-            const prevBtn = document.getElementById('prev-char-btn');
-            const nextBtn = document.getElementById('next-char-btn');
-            
-            if (currentIndex !== -1) {
-                const prevChar = characterRoster[(currentIndex - 1 + characterRoster.length) % characterRoster.length];
-                const nextChar = characterRoster[(currentIndex + 1) % characterRoster.length];
-                
-                // Keep links clean since we are already inside the html/ directory
-                prevBtn.href = `character.html?char=${prevChar}`;
-                nextBtn.href = `character.html?char=${nextChar}`;
-            } else {
-                prevBtn.href = 'character.html?char=luffy';
-                nextBtn.href = 'character.html?char=zoro';
-            }
+      document.addEventListener("DOMContentLoaded", () => {
+        const params = new URLSearchParams(window.location.search);
+        const currentChar = params.get("char") || "luffy";
+        const currentLook = params.get("look");
+
+        const topBackBtn = document.getElementById("top-back-btn");
+        const backToCatalogBtn = document.getElementById("back-to-catalog-btn");
+
+        // 1. Save scroll position whenever user scrolls on the catalog view
+        window.addEventListener("scroll", () => {
+          if (!new URLSearchParams(window.location.search).has("look")) {
+            sessionStorage.setItem(`scroll_${currentChar}`, window.scrollY);
+          }
         });
+
+        // 2. Restore scroll position if returning from a look page
+        if (!currentLook) {
+          const savedScroll = sessionStorage.getItem(`scroll_${currentChar}`);
+          if (savedScroll) {
+            setTimeout(() => {
+              window.scrollTo({ top: parseInt(savedScroll, 10), behavior: 'instant' });
+            }, 50);
+          }
+        }
+
+        // 3. Handle Top Back Button Behavior
+        if (currentLook) {
+          topBackBtn.href = `character.html?char=${currentChar}`;
+          topBackBtn.title = "Back to Character Looks";
+        } else {
+          topBackBtn.href = "anime.html";
+          topBackBtn.title = "Back to Anime Hub";
+        }
+
+        // 4. Intercept Back-to-Catalog / Top-Back clicks to preserve exact scroll position smoothly
+        const handleReturnToGrid = (e) => {
+          if (new URLSearchParams(window.location.search).has("look")) {
+            e.preventDefault();
+            window.history.pushState({}, "", `character.html?char=${currentChar}`);
+            if (typeof closeActiveLook === "function") {
+              closeActiveLook();
+            } else {
+              window.location.reload();
+            }
+            // Instantly restore saved scroll position
+            const savedScroll = sessionStorage.getItem(`scroll_${currentChar}`);
+            if (savedScroll) {
+              window.scrollTo({ top: parseInt(savedScroll, 10), behavior: 'instant' });
+            }
+          }
+        };
+
+        topBackBtn.addEventListener("click", handleReturnToGrid);
+        if (backToCatalogBtn) {
+          backToCatalogBtn.addEventListener("click", handleReturnToGrid);
+        }
+
+        // Character Roster Quick Switcher Links
+        const characterRoster = ["luffy", "zoro"];
+        const currentIndex = characterRoster.indexOf(currentChar);
+        const prevBtn = document.getElementById("prev-char-btn");
+        const nextBtn = document.getElementById("next-char-btn");
+
+        if (currentIndex !== -1) {
+          const prevChar = characterRoster[(currentIndex - 1 + characterRoster.length) % characterRoster.length];
+          const nextChar = characterRoster[(currentIndex + 1) % characterRoster.length];
+          prevBtn.href = `character.html?char=${prevChar}`;
+          nextBtn.href = `character.html?char=${nextChar}`;
+        } else {
+          prevBtn.href = "character.html?char=luffy";
+          prevBtn.href = "character.html?char=zoro";
+        }
+      });
     </script>
 
     <!-- DATA & DYNAMIC LOADER SCRIPTS -->
@@ -198,5 +359,5 @@
     <script src="../js/data/anime/zoro.js"></script>
     <script src="../js/dynamic_loader.js"></script>
     <script src="../js/script.js"></script>
-</body>
+  </body>
 </html>
