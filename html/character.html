@@ -2,14 +2,14 @@
 <!-- 
     THE ANIME CLOSET - UNIVERSAL CHARACTER TEMPLATE (`character.html`)
     - Single reusable template driven dynamically via URL parameters (e.g. character.html?char=luffy)
-    - 5-Column Compact Grid Layout & Character Next/Prev Navigation
-    - Scroll Position Memory Preservation on Back Click
+    - 5-Column Compact Grid Layout & Character Next/Home/Prev Navigation
+    - Auto-Scroll Focus to Active Look Section when URL contains a look parameter
 -->
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Character Lookbook | The Outfit</title>
+    <title>Character Lookbook | The Outfits</title>
 
     <!-- CRITICAL: Synchronous Theme Detector in Head prevents white flash in dark mode -->
     <script>
@@ -95,22 +95,17 @@
           id="header-franchise-badge"
           class="px-3 py-1.5 rounded-full bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 text-[10px] sm:text-xs font-mono font-bold tracking-wider text-petrol dark:text-zinc-200 shadow-sm"
         >
-          Anime Hub 🏴‍☠️
+          Anime: One Piece 🏴‍☠️
         </div>
       </header>
 
       <!-- MAIN LOOKBOOK CONTAINER -->
       <main class="flex-grow space-y-6 mb-8">
-        <!-- 1. COMPACT CHARACTER HEADER -->
+        <!-- 1. COMPACT CHARACTER HEADER WITH IN-BETWEEN HOME NAVIGATION -->
         <div
           class="bg-petrol text-taupeCream border-2 border-petrol dark:border-zinc-700 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_0px_0px_#2D2522] dark:shadow-[4px_4px_0px_0px_#71717A] flex flex-col md:flex-row justify-between items-start md:items-center gap-3"
         >
           <div class="space-y-0.5">
-            <span
-              id="character-anime-tag"
-              class="text-[10px] font-mono font-bold text-tangerine uppercase tracking-widest"
-              >Loading Collection...</span
-            >
             <h1
               id="character-title"
               class="text-xl sm:text-3xl font-bold tracking-tight text-taupeCream font-punk"
@@ -125,47 +120,67 @@
             </p>
           </div>
 
-          <div class="flex items-center gap-3 flex-wrap">
-            <!-- CHARACTER JUMP NAV BUTTONS -->
-            <div class="flex items-center gap-2">
-              <a
-                id="prev-char-btn"
-                href="#"
-                class="px-2.5 py-1 rounded-lg bg-taupeCream/10 hover:bg-tangerine text-taupeCream border border-taupeCream/30 text-[11px] font-mono font-bold uppercase transition-colors"
-              >
-                &larr; Prev
-              </a>
-              <a
-                id="next-char-btn"
-                href="#"
-                class="px-2.5 py-1 rounded-lg bg-taupeCream/10 hover:bg-tangerine text-taupeCream border border-taupeCream/30 text-[11px] font-mono font-bold uppercase transition-colors"
-              >
-                Next &rarr;
-              </a>
-            </div>
-            <div
-              id="total-looks-badge"
-              class="px-2.5 py-1 rounded-lg bg-taupeCream text-petrol border-2 border-petrol text-[11px] font-mono font-bold shadow-sm whitespace-nowrap"
+          <!-- CHARACTER JUMP NAV BUTTONS WITH HOME IN-BETWEEN -->
+          <div class="flex items-center gap-2 flex-wrap">
+            <a
+              id="prev-char-btn"
+              href="#"
+              class="px-3 py-1.5 rounded-lg bg-taupeCream/10 hover:bg-tangerine text-taupeCream border border-taupeCream/30 text-[11px] font-mono font-bold uppercase transition-colors"
             >
-              Loading...
-            </div>
+              &larr; <span id="prev-char-name">Prev</span>
+            </a>
+            <a
+              href="anime.html"
+              class="px-3 py-1.5 rounded-lg bg-taupeCream/10 hover:bg-tangerine text-taupeCream border border-taupeCream/30 text-[11px] font-mono font-bold uppercase transition-colors flex items-center gap-1"
+              title="Go to Anime Hub"
+            >
+              🏠 Home
+            </a>
+            <a
+              id="next-char-btn"
+              href="#"
+              class="px-3 py-1.5 rounded-lg bg-taupeCream/10 hover:bg-tangerine text-taupeCream border border-taupeCream/30 text-[11px] font-mono font-bold uppercase transition-colors"
+            >
+              <span id="next-char-name">Next</span> &rarr;
+            </a>
           </div>
         </div>
 
-        <!-- 2. BENTO CATALOG GRID -->
-        <div id="catalog-view">
+        <!-- 2. BENTO CATALOG GRID WITH MALE/FEMALE FIT FILTER -->
+        <div id="catalog-view" class="space-y-4">
           <div
-            class="flex items-center justify-between pb-2 mb-3 border-b-2 border-petrol/20 dark:border-zinc-800"
+            class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-3 gap-3 border-b-2 border-petrol/20 dark:border-zinc-800"
           >
             <h2
               class="text-xs font-mono font-bold uppercase tracking-wider text-petrol/70 dark:text-zinc-400"
             >
               All Lookbook Options (Select to View)
             </h2>
-            <span
-              class="text-[10px] font-mono text-tangerine font-bold uppercase"
-              >Ready to Shop</span
-            >
+
+            <!-- MALE & FEMALE FIT FILTER BUTTONS -->
+            <div class="flex items-center gap-1.5 bg-cardLight dark:bg-cardObsidian p-1 rounded-xl border-2 border-petrol dark:border-zinc-700 shadow-sm font-mono text-xs">
+              <button 
+                onclick="filterFits('all')" 
+                id="filter-btn-all"
+                class="px-3 py-1 rounded-lg bg-petrol text-white font-bold transition-all"
+              >
+                All Fits
+              </button>
+              <button 
+                onclick="filterFits('male')" 
+                id="filter-btn-male"
+                class="px-3 py-1 rounded-lg text-petrol dark:text-zinc-300 hover:bg-petrol/10 font-bold transition-all"
+              >
+                Male Fit ♂
+              </button>
+              <button 
+                onclick="filterFits('female')" 
+                id="filter-btn-female"
+                class="px-3 py-1 rounded-lg text-petrol dark:text-zinc-300 hover:bg-petrol/10 font-bold transition-all"
+              >
+                Female Fit ♀
+              </button>
+            </div>
           </div>
 
           <div
@@ -196,47 +211,53 @@
               </h3>
             </div>
 
-            <div class="flex items-center gap-2 flex-wrap">
-              <button
-                onclick="prevLook()"
-                class="px-3 py-2 rounded-xl border-2 border-petrol dark:border-zinc-600 text-xs font-mono font-bold uppercase tracking-wider hover:bg-tangerine hover:text-white transition-colors shadow-sm"
-                title="Previous Look"
-              >
-                &lt; Prev Look
-              </button>
-              <button
-                id="back-to-catalog-btn"
-                class="px-4 py-2 rounded-xl border-2 border-petrol dark:border-zinc-600 text-xs font-mono font-bold uppercase tracking-wider hover:bg-petrol hover:text-white transition-colors shadow-sm"
-              >
-                ← Back to All Looks
-              </button>
-              <button
-                onclick="nextLook()"
-                class="px-3 py-2 rounded-xl border-2 border-petrol dark:border-zinc-600 text-xs font-mono font-bold uppercase tracking-wider hover:bg-tangerine hover:text-white transition-colors shadow-sm"
-                title="Next Look"
-              >
-                Next Look &gt;
-              </button>
-            </div>
+            <!-- BACK TO ALL LOOKS BUTTON TOP -->
+            <button
+              id="back-to-catalog-btn"
+              class="px-4 py-2 rounded-xl border-2 border-petrol dark:border-zinc-600 text-xs font-mono font-bold uppercase tracking-wider hover:bg-petrol hover:text-white transition-colors shadow-sm"
+            >
+              ← Back to All Looks
+            </button>
           </div>
 
           <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
-            <div
-              class="lg:col-span-5 bg-white dark:bg-zinc-950 border-2 border-petrol dark:border-zinc-700 rounded-2xl overflow-hidden h-[420px] flex items-center justify-center relative p-4"
-            >
-              <img
-                id="modal-model-img"
-                src=""
-                alt="Lookbook Reference Model"
-                class="absolute inset-0 w-full h-full object-contain object-center p-4 hidden"
-              />
-              <div id="modal-placeholder" class="space-y-2 text-center">
-                <span class="text-4xl">🧥</span>
-                <p
-                  class="text-xs font-mono font-bold text-petrol/70 dark:text-zinc-400"
+            <!-- MANNEQUIN STAGE & REPOSITIONED PREV/NEXT LOOK BUTTONS BELOW -->
+            <div class="lg:col-span-5 flex flex-col space-y-3">
+              <div
+                class="bg-white dark:bg-zinc-950 border-2 border-petrol dark:border-zinc-700 rounded-2xl overflow-hidden h-[420px] flex items-center justify-center relative p-4 shadow-sm"
+              >
+                <img
+                  id="modal-model-img"
+                  src=""
+                  alt="Lookbook Reference Model"
+                  class="absolute inset-0 w-full h-full object-contain object-center p-4 hidden"
+                />
+                <div id="modal-placeholder" class="space-y-2 text-center">
+                  <span class="text-4xl">🧥</span>
+                  <p
+                    class="text-xs font-mono font-bold text-petrol/70 dark:text-zinc-400"
+                  >
+                    No Preview Asset
+                  </p>
+                </div>
+              </div>
+
+              <!-- REPOSITIONED LOOK NAVIGATION BUTTONS BELOW MANNEQUIN -->
+              <div class="flex items-center justify-between gap-2">
+                <button
+                  onclick="prevLook()"
+                  class="flex-1 px-3 py-2.5 rounded-xl bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 text-xs font-mono font-bold uppercase tracking-wider hover:bg-tangerine hover:text-white transition-colors shadow-sm text-center"
+                  title="Previous Look"
                 >
-                  No Preview Asset
-                </p>
+                  &lt; Prev Look
+                </button>
+                <button
+                  onclick="nextLook()"
+                  class="flex-1 px-3 py-2.5 rounded-xl bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 text-xs font-mono font-bold uppercase tracking-wider hover:bg-tangerine hover:text-white transition-colors shadow-sm text-center"
+                  title="Next Look"
+                >
+                  Next Look &gt;
+                </button>
               </div>
             </div>
 
@@ -294,7 +315,7 @@
           }
         });
 
-        // 2. Restore scroll position if returning from a look page
+        // 2. Restore scroll position if returning from a look page, unless a specific look is requested directly in URL
         if (!currentLook) {
           const savedScroll = sessionStorage.getItem(`scroll_${currentChar}`);
           if (savedScroll) {
@@ -323,7 +344,6 @@
             } else {
               window.location.reload();
             }
-            // Instantly restore saved scroll position
             const savedScroll = sessionStorage.getItem(`scroll_${currentChar}`);
             if (savedScroll) {
               window.scrollTo({ top: parseInt(savedScroll, 10), behavior: 'instant' });
@@ -336,20 +356,32 @@
           backToCatalogBtn.addEventListener("click", handleReturnToGrid);
         }
 
-        // Character Roster Quick Switcher Links
-        const characterRoster = ["luffy", "zoro"];
-        const currentIndex = characterRoster.indexOf(currentChar);
+        // Character Roster Quick Switcher Links with Names Displayed
+        const characterRegistryInfo = [
+          { key: "luffy", name: "Luffy" },
+          { key: "zoro", name: "Zoro" }
+        ];
+        
+        const currentIndex = characterRegistryInfo.findIndex(c => c.key === currentChar);
         const prevBtn = document.getElementById("prev-char-btn");
         const nextBtn = document.getElementById("next-char-btn");
+        const prevNameSpan = document.getElementById("prev-char-name");
+        const nextNameSpan = document.getElementById("next-char-name");
 
         if (currentIndex !== -1) {
-          const prevChar = characterRoster[(currentIndex - 1 + characterRoster.length) % characterRoster.length];
-          const nextChar = characterRoster[(currentIndex + 1) % characterRoster.length];
-          prevBtn.href = `character.html?char=${prevChar}`;
-          nextBtn.href = `character.html?char=${nextChar}`;
+          const prevCharObj = characterRegistryInfo[(currentIndex - 1 + characterRegistryInfo.length) % characterRegistryInfo.length];
+          const nextCharObj = characterRegistryInfo[(currentIndex + 1) % characterRegistryInfo.length];
+          
+          prevBtn.href = `character.html?char=${prevCharObj.key}`;
+          prevNameSpan.innerText = prevCharObj.name;
+          
+          nextBtn.href = `character.html?char=${nextCharObj.key}`;
+          nextNameSpan.innerText = nextCharObj.name;
         } else {
           prevBtn.href = "character.html?char=luffy";
-          prevBtn.href = "character.html?char=zoro";
+          prevNameSpan.innerText = "Luffy";
+          nextBtn.href = "character.html?char=zoro";
+          nextNameSpan.innerText = "Zoro";
         }
       });
     </script>

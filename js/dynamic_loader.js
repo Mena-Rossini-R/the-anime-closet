@@ -6,6 +6,7 @@ let lookKeysArray = [];
 let currentIndex = 0;
 let activeLookKey = null;
 let currentCharacterData = null;
+let currentFitFilter = "all"; // "all", "male", "female"
 
 function initDynamicCharacterPage() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -31,14 +32,10 @@ function initDynamicCharacterPage() {
     document.title = `${currentCharacterData.characterName} Lookbook | The Outfits`;
     document.getElementById("character-title").innerText =
         currentCharacterData.characterName;
-    document.getElementById("character-anime-tag").innerText =
-        `${currentCharacterData.anime} Collection • Master Catalog`;
     document.getElementById("character-subtitle").innerText =
         currentCharacterData.subtitle;
     document.getElementById("header-franchise-badge").innerText =
         `Anime: ${currentCharacterData.anime} 🏴‍☠️`;
-    document.getElementById("total-looks-badge").innerText =
-        `${Object.keys(currentCharacterData.looks).length} Total Looks Available`;
 
     lookKeysArray = Object.keys(currentCharacterData.looks);
 
@@ -50,6 +47,23 @@ function initDynamicCharacterPage() {
     }
 }
 
+function filterFits(fitType) {
+    currentFitFilter = fitType;
+
+    // Update button active state styling
+    ['all', 'male', 'female'].forEach(type => {
+        const btn = document.getElementById(`filter-btn-${type}`);
+        if (!btn) return;
+        if (type === fitType) {
+            btn.className = "px-3 py-1 rounded-lg bg-petrol text-white font-bold transition-all shadow-sm";
+        } else {
+            btn.className = "px-3 py-1 rounded-lg text-petrol dark:text-zinc-300 hover:bg-petrol/10 font-bold transition-all";
+        }
+    });
+
+    renderCatalogGrid();
+}
+
 function renderCatalogGrid() {
     activeLookKey = null;
     document.getElementById('catalog-view').classList.remove('hidden');
@@ -58,7 +72,23 @@ function renderCatalogGrid() {
     const looksMap = currentCharacterData.looks;
     const gridContainer = document.getElementById('catalog-grid');
 
-    gridContainer.innerHTML = lookKeysArray.map(lookKey => {
+    // Filter look keys based on male/female selection
+    const filteredKeys = lookKeysArray.filter(lookKey => {
+        const look = looksMap[lookKey];
+        if (currentFitFilter === 'all') return true;
+        return look.gender === currentFitFilter;
+    });
+
+    if (filteredKeys.length === 0) {
+        gridContainer.innerHTML = `
+            <div class="col-span-full py-12 text-center font-mono text-xs text-petrol/70 dark:text-zinc-400">
+                No looks found for ${currentFitFilter.toUpperCase()} fit in this collection.
+            </div>
+        `;
+        return;
+    }
+
+    gridContainer.innerHTML = filteredKeys.map(lookKey => {
                 const look = looksMap[lookKey];
 
                 let displayPrice = "₹799";
@@ -168,7 +198,6 @@ function prevLook() {
 }
 
 function closeActiveLook() {
-    // Remove the 'look' parameter from URL when going back to all looks grid
     const urlParams = new URLSearchParams(window.location.search);
     urlParams.delete('look');
     window.history.replaceState({}, '', `${window.location.pathname}?${urlParams.toString()}`);

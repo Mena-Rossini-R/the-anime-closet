@@ -46,12 +46,30 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,400&family=Syne:wght@700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;600;1,400&family=Syne:wght@700;800&display=swap"
       rel="stylesheet"
     />
 
     <!-- External Custom Stylesheet -->
     <link rel="stylesheet" href="../css/style.css" />
+
+    <!-- Custom CSS for Smooth Partner Ticker Scroll -->
+    <style>
+      @keyframes tickerScroll {
+        0% {
+          transform: translateX(0);
+        }
+        100% {
+          transform: translateX(-50%);
+        }
+      }
+      .animate-ticker {
+        display: flex;
+        width: max-content;
+        animation: tickerScroll 22s linear infinite;
+      }
+      /* Hover pause disabled for continuous smooth cycling */
+    </style>
   </head>
   <body
     class="bg-taupeCream text-petrol dark:bg-obsidian dark:text-zinc-100 min-h-screen selection:bg-tangerine selection:text-white font-sans antialiased overflow-x-hidden relative flex flex-col justify-between"
@@ -79,14 +97,14 @@
               The Outfits<span class="text-tangerine">.</span>
             </a>
             <p
-              class="text-[9px] uppercase tracking-widest text-petrol/70 dark:text-zinc-400 font-mono font-semibold"
+              class="text-[10px] uppercase tracking-widest text-petrol/70 dark:text-zinc-400 font-mono font-bold"
             >
               Why make it boring?
             </p>
           </div>
         </div>
 
-        <!-- UPGRADED NAVIGATION FONT SIZE (text-sm md:text-base) -->
+        <!-- UPGRADED NAVIGATION FONT SIZE -->
         <nav
           class="hidden md:flex items-center gap-6 text-sm md:text-base font-semibold uppercase tracking-wider text-petrol dark:text-zinc-300 font-mono"
         >
@@ -96,29 +114,29 @@
             >Home</a
           >
           <a
-            href="html\anime.html"
+            href="html/anime.html"
             class="hover:text-tangerine transition-colors"
             >Anime</a
           >
           <a
-            href="html\korean.html"
+            href="html/korean.html"
             class="hover:text-tangerine transition-colors"
             >Korean</a
           >
           <a
-            href="html\shows.html"
+            href="html/shows.html"
             class="hover:text-tangerine transition-colors"
             >Shows</a
           >
           <a
-            href="html\about.html"
+            href="html/about.html"
             class="hover:text-tangerine transition-colors"
             >About Us</a
           >
         </nav>
 
         <a
-          href="html\about.html#contact"
+          href="html/about.html#contact"
           class="flex items-center gap-2 px-3.5 py-2 rounded-full bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 text-xs md:text-sm text-petrol dark:text-zinc-200 font-mono font-semibold hover:bg-tangerine hover:text-white transition-colors shadow-sm"
         >
           Contact Us ↗
@@ -127,45 +145,140 @@
 
       <!-- MAIN LANDING CONTAINER -->
       <main class="flex-grow space-y-8 mb-12">
-        <!-- HERO SECTION -->
+        <!-- HERO SECTION (Strictly Aligned Heights & Seamless Layout) -->
         <section
           class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch border-b-2 border-petrol/20 dark:border-zinc-800 pb-8"
         >
-          <!-- PLAIN / CLEAN EDITORIAL HERO BLOCK -->
+          <!-- LEFT HERO EDITORIAL BLOCK -->
           <div
-            class="lg:col-span-7 flex flex-col justify-between space-y-5 bg-white dark:bg-cardObsidian text-petrol p-8 sm:p-10 rounded-3xl border-2 border-petrol dark:border-zinc-700 shadow-[6px_6px_0px_0px_#2D2522]"
+            class="lg:col-span-7 flex flex-col bg-white dark:bg-cardObsidian text-petrol p-8 sm:p-10 rounded-3xl border-2 border-petrol dark:border-zinc-700 shadow-[6px_6px_0px_0px_#2D2522] h-full"
           >
+            <!-- Top Description Content -->
             <div class="space-y-4">
               <h1
-                class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-petrol dark:text-zinc-100 leading-[1.2] font-punk"
+                class="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-petrol dark:text-zinc-100 leading-[1.25] font-punk"
               >
-                Screen Icons Meet
-                <span class="text-tangerine font-normal italic font-editorial"
+                Where Screen Icons Meet
+                <span
+                  class="text-tangerine font-normal italic font-editorial ml-1"
                   >Realistic Streetwear.</span
                 >
               </h1>
               <p
-                class="text-petrol/80 dark:text-zinc-300 text-sm md:text-base leading-relaxed max-w-xl font-medium"
+                class="text-petrol/85 dark:text-zinc-300 text-base md:text-lg leading-relaxed font-normal max-w-2xl"
               >
                 Meticulously curated looks inspired by your favorite anime
                 characters, K-Drama leads, and television icons—sourced directly
                 across India's top online fashion destinations.
               </p>
             </div>
+
+            <!-- INTEGRATED LIVE PARTNER STORE TICKER (Anchored cleanly to bottom) -->
             <div
-              class="flex flex-wrap items-center gap-3 font-mono text-xs text-petrol dark:text-zinc-200 bg-taupeCream dark:bg-zinc-900 px-4 py-3 rounded-2xl border border-petrol/20 dark:border-zinc-700 shadow-sm font-semibold"
+              class="pt-6 mt-auto border-t-2 border-petrol/10 dark:border-zinc-800 overflow-hidden relative"
             >
-              <span class="text-petrol/70 dark:text-zinc-400"
-                >Outsourced From:</span
+              <div class="flex items-center justify-between mb-3">
+                <span
+                  class="text-xs font-mono font-bold uppercase tracking-wider text-petrol/70 dark:text-zinc-400"
+                >
+                  Outsourced From Partner Stores:
+                </span>
+                <span
+                  class="text-xs font-mono font-bold text-tangerine animate-pulse flex items-center gap-1.5"
+                >
+                  <span
+                    class="w-2 h-2 rounded-full bg-tangerine inline-block"
+                  ></span>
+                  Live Discounts Active
+                </span>
+              </div>
+
+              <!-- Ticker Container -->
+              <div
+                class="relative w-full overflow-hidden whitespace-nowrap py-1.5"
               >
-              <span class="text-tangerine font-bold"
-                >MYNTRA • FLIPKART • AJIO • SAVANA</span
-              >
+                <div class="animate-ticker flex items-center gap-4">
+                  <!-- Set 1 -->
+                  <div
+                    class="flex items-center gap-4 font-mono text-xs font-bold text-petrol dark:text-zinc-200"
+                  >
+                    <span
+                      class="px-3.5 py-2 rounded-xl bg-taupeCream dark:bg-zinc-900 border-2 border-petrol/20 dark:border-zinc-700 shadow-xs flex items-center gap-2"
+                    >
+                      🛍️ <span class="text-tangerine">MYNTRA</span>
+                      <span class="text-xs opacity-80 font-medium"
+                        >Up to 40% Off</span
+                      >
+                    </span>
+                    <span
+                      class="px-3.5 py-2 rounded-xl bg-taupeCream dark:bg-zinc-900 border-2 border-petrol/20 dark:border-zinc-700 shadow-xs flex items-center gap-2"
+                    >
+                      ⚡ <span class="text-tangerine">FLIPKART</span>
+                      <span class="text-xs opacity-80 font-medium"
+                        >Extra Cashback</span
+                      >
+                    </span>
+                    <span
+                      class="px-3.5 py-2 rounded-xl bg-taupeCream dark:bg-zinc-900 border-2 border-petrol/20 dark:border-zinc-700 shadow-xs flex items-center gap-2"
+                    >
+                      🔥 <span class="text-tangerine">AJIO</span>
+                      <span class="text-xs opacity-80 font-medium"
+                        >Trend Deals</span
+                      >
+                    </span>
+                    <span
+                      class="px-3.5 py-2 rounded-xl bg-taupeCream dark:bg-zinc-900 border-2 border-petrol/20 dark:border-zinc-700 shadow-xs flex items-center gap-2"
+                    >
+                      ✨ <span class="text-tangerine">SAVANA</span>
+                      <span class="text-xs opacity-80 font-medium"
+                        >New Streetwear</span
+                      >
+                    </span>
+                  </div>
+                  <!-- Set 2 (Seamless Infinite Loop Mirror) -->
+                  <div
+                    class="flex items-center gap-4 font-mono text-xs font-bold text-petrol dark:text-zinc-200 ml-4"
+                  >
+                    <span
+                      class="px-3.5 py-2 rounded-xl bg-taupeCream dark:bg-zinc-900 border-2 border-petrol/20 dark:border-zinc-700 shadow-xs flex items-center gap-2"
+                    >
+                      🛍️ <span class="text-tangerine">MYNTRA</span>
+                      <span class="text-xs opacity-80 font-medium"
+                        >Up to 40% Off</span
+                      >
+                    </span>
+                    <span
+                      class="px-3.5 py-2 rounded-xl bg-taupeCream dark:bg-zinc-900 border-2 border-petrol/20 dark:border-zinc-700 shadow-xs flex items-center gap-2"
+                    >
+                      ⚡ <span class="text-tangerine">FLIPKART</span>
+                      <span class="text-xs opacity-80 font-medium"
+                        >Extra Cashback</span
+                      >
+                    </span>
+                    <span
+                      class="px-3.5 py-2 rounded-xl bg-taupeCream dark:bg-zinc-900 border-2 border-petrol/20 dark:border-zinc-700 shadow-xs flex items-center gap-2"
+                    >
+                      🔥 <span class="text-tangerine">AJIO</span>
+                      <span class="text-xs opacity-80 font-medium"
+                        >Trend Deals</span
+                      >
+                    </span>
+                    <span
+                      class="px-3.5 py-2 rounded-xl bg-taupeCream dark:bg-zinc-900 border-2 border-petrol/20 dark:border-zinc-700 shadow-xs flex items-center gap-2"
+                    >
+                      ✨ <span class="text-tangerine">SAVANA</span>
+                      <span class="text-xs opacity-80 font-medium"
+                        >New Streetwear</span
+                      >
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
 
           <!-- SPOTLIGHT SHOWCASE BANNER -->
-          <div class="lg:col-span-5 w-full flex flex-col">
+          <div class="lg:col-span-5 w-full flex flex-col h-full">
             <div
               id="spotlight-card-container"
               class="h-full flex flex-col"
@@ -223,7 +336,7 @@
           </div>
         </section>
 
-        <!-- DYNAMIC OUTFIT CARDS FEED (5 Cards in One Row on Desktop) -->
+        <!-- DYNAMIC OUTFIT CARDS FEED -->
         <section class="space-y-6">
           <div
             class="flex items-center justify-between pb-3 border-b-2 border-petrol/20 dark:border-zinc-800"
@@ -239,7 +352,7 @@
             >
           </div>
 
-          <!-- 5-COLUMN RESPONSIVE GRID: 1 col on mobile, 2 on sm, 3 on md, 5 on lg -->
+          <!-- 5-COLUMN RESPONSIVE GRID -->
           <div
             id="outfit-feed-grid"
             class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 items-stretch"
@@ -289,7 +402,6 @@
     </div>
 
     <!-- SPOTLIGHT AND FILTER RENDER SCRIPT -->
-    <!-- SPOTLIGHT AND FILTER RENDER SCRIPT -->
     <script>
       const SPOTLIGHT_DATABASE = [
         {
@@ -322,7 +434,7 @@
 
       let spotlightIndex = 0;
       let spotlightTimer = null;
-      let visibleLimit = 5; // Initial load set to exactly 5 cards for the single row
+      let visibleLimit = 5;
       let filteredCache = [];
 
       function initSpotlight() {
@@ -332,17 +444,11 @@
 
       function startSpotlightTimer() {
         if (spotlightTimer) clearInterval(spotlightTimer);
+        // Continuous smooth rotation without pausing on hover
         spotlightTimer = setInterval(() => {
           spotlightIndex = (spotlightIndex + 1) % SPOTLIGHT_DATABASE.length;
           renderSpotlight();
-        }, 3000); // Increased slightly to 3s for better user reading time
-      }
-
-      function pauseSpotlightTimer() {
-        if (spotlightTimer) {
-          clearInterval(spotlightTimer);
-          spotlightTimer = null;
-        }
+        }, 3000);
       }
 
       function renderSpotlight() {
@@ -351,9 +457,9 @@
         if (!container) return;
 
         container.innerHTML = `
-                <div class="h-full flex flex-col" onmouseenter="pauseSpotlightTimer()" onmouseleave="startSpotlightTimer()">
-                    <a href="${spot.url}" class="card-container relative group block bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 rounded-3xl p-4 shadow-[6px_6px_0px_0px_#2D2522] dark:shadow-[6px_6px_0px_0px_#71717A] hover:bg-petrol hover:text-taupeCream transition-all overflow-hidden flex flex-col justify-between h-full">
-                        <div class="absolute top-6 right-6 bg-taupeCream dark:bg-zinc-800 text-petrol group-hover:bg-tangerine group-hover:text-white dark:text-zinc-300 px-2.5 py-0.5 rounded text-[9px] font-mono font-bold uppercase border border-petrol dark:border-zinc-700 z-25 rotate-1 shadow-xs transition-colors">
+                <div class="h-full flex flex-col">
+                    <a href="${spot.url}" class="card-container relative group block bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 rounded-3xl p-5 shadow-[6px_6px_0px_0px_#2D2522] dark:shadow-[6px_6px_0px_0px_#71717A] hover:bg-petrol hover:text-taupeCream transition-all overflow-hidden flex flex-col justify-between h-full">
+                        <div class="absolute top-6 right-6 bg-taupeCream dark:bg-zinc-800 text-petrol group-hover:bg-tangerine group-hover:text-white dark:text-zinc-300 px-3 py-1 rounded text-[10px] font-mono font-bold uppercase border border-petrol dark:border-zinc-700 z-25 rotate-1 shadow-xs transition-colors">
                             ${spot.tagLabel}
                         </div>
                         
@@ -361,16 +467,16 @@
                             <div class="relative w-full h-56 sm:h-64 rounded-2xl overflow-hidden bg-white dark:bg-zinc-950 mb-4 border-2 border-petrol dark:border-zinc-700">
                                 <!-- IMAGE SLOT: Mannequin Asset -->
                                 <img src="${spot.image}" alt="${spot.title}" class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700">
-                                <div class="absolute top-3 left-3 bg-petrol text-taupeCream group-hover:bg-taupeCream group-hover:text-petrol backdrop-blur-md px-3 py-1 rounded-full text-xs font-mono font-bold uppercase tracking-wider border-2 border-petrol dark:border-zinc-600 shadow-sm transition-colors z-10">
+                                <div class="absolute top-3 left-3 bg-petrol text-taupeCream group-hover:bg-taupeCream group-hover:text-petrol backdrop-blur-md px-3.5 py-1.5 rounded-full text-xs font-mono font-bold uppercase tracking-wider border-2 border-petrol dark:border-zinc-600 shadow-sm transition-colors z-10">
                                     ${spot.genreLabel}
                                 </div>
                             </div>
-                            <div class="flex items-center justify-between px-1">
+                            <div class="flex items-center justify-between px-1 mt-auto">
                                 <div>
-                                    <h3 class="font-bold text-base text-petrol group-hover:text-taupeCream dark:text-zinc-100 transition-colors font-punk">${spot.title}</h3>
-                                    <p class="text-xs text-petrol/70 group-hover:text-taupeCream/80 dark:text-zinc-400 mt-0.5 font-medium">${spot.subtitle}</p>
+                                    <h3 class="font-bold text-lg text-petrol group-hover:text-taupeCream dark:text-zinc-100 transition-colors font-punk">${spot.title}</h3>
+                                    <p class="text-xs sm:text-sm text-petrol/75 group-hover:text-taupeCream/85 dark:text-zinc-400 mt-1 font-medium">${spot.subtitle}</p>
                                 </div>
-                                <span class="text-xs font-mono font-bold uppercase tracking-widest text-tangerine group-hover:text-taupeCream group-hover:translate-x-1 transition-transform">
+                                <span class="text-xs font-mono font-bold uppercase tracking-widest text-tangerine group-hover:text-taupeCream group-hover:translate-x-1 transition-transform pl-3">
                                     Explore ↗
                                 </span>
                             </div>
@@ -380,7 +486,6 @@
             `;
       }
 
-      // Rest of your filtering and rendering functions remain unchanged...
       function resetAndFilter() {
         visibleLimit = 5;
         applyMasterFilter();
@@ -483,6 +588,7 @@
         initSpotlight();
       });
     </script>
+
     <!-- 1. LOAD CHARACTER DATA SCRIPTS -->
     <script src="/js/data/anime/luffy.js"></script>
 
