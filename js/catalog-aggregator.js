@@ -5,22 +5,41 @@
 
 let MASTER_CATALOG = [];
 
+function getCatalogRegistries() {
+    return [
+        window.ANIME_LOOKBOOKS || {},
+        window.KOREAN_LOOKBOOKS || {},
+        window.SHOWS_LOOKBOOKS || {},
+        (window.THE_OUTFITS_DATA && window.THE_OUTFITS_DATA.characters) || {}
+    ];
+}
+
 function aggregateCharacterCatalogs() {
     MASTER_CATALOG = [];
-    const registry = window.ANIME_LOOKBOOKS || {};
+    const merged = {};
 
-    // Loop through every registered character script automatically
-    Object.keys(registry).forEach(charKey => {
-        const charData = registry[charKey];
-        if (!charData || !charData.looks) return;
+    getCatalogRegistries().forEach((registry) => {
+        Object.keys(registry).forEach((charKey) => {
+            const charData = registry[charKey];
+            if (!charData || !charData.looks) return;
+            merged[charKey] = { ...merged[charKey], ...charData };
+        });
+    });
 
-        // Loop through each look belonging to this character
-        Object.keys(charData.looks).forEach(lookKey => {
+    Object.keys(merged).forEach((charKey) => {
+        const charData = merged[charKey];
+        const category = charData.category || 'anime';
+        const folderMap = {
+            anime: 'anime',
+            korean: 'korean',
+            shows: 'shows'
+        };
+        const folder = folderMap[category] || category;
+
+        Object.keys(charData.looks || {}).forEach((lookKey) => {
             const look = charData.looks[lookKey];
-
-            // Safely parse price number from string if needed (e.g., "₹699" -> 699 or fallback)
             let rawPrice = 699;
-            let priceStr = "₹699";
+            let priceStr = '₹699';
 
             if (look.items && look.items[0] && look.items[0].price) {
                 if (typeof look.items[0].price === 'number') {
@@ -32,24 +51,22 @@ function aggregateCharacterCatalogs() {
                 }
             }
 
-            // Push formatted item into the master feed with the correct 'html/' subfolder prefix
             MASTER_CATALOG.push({
                 id: `${charKey}-${lookKey}`,
-                universe: charData.universe || "anime",
-                universeLabel: charData.anime,
-                characterName: charData.characterName,
-                gender: look.gender || "unisex", // "male", "female", "unisex"
+                universe: charData.universe || category || 'anime',
+                universeLabel: charData.universeLabel || charData.badge || charData.displayName || 'Character',
+                characterName: charData.displayName || charData.characterName || charData.key,
+                gender: look.gender || 'unisex',
                 title: look.title,
                 price: rawPrice,
                 priceFormatted: priceStr,
-                dateAdded: look.dateAdded || "2026-10-01",
-                url: `html/character.html?char=${charKey}&look=${lookKey}`,
-                image: look.mannequinImg
+                dateAdded: look.dateAdded || '2026-10-01',
+                url: `${folder}/character.html?char=${charKey}&category=${category}&look=${lookKey}`,
+                image: look.mannequinImg || charData.image
             });
         });
     });
 
-    // Run filter and render once aggregated
     if (typeof applyMasterFilter === 'function') {
         applyMasterFilter();
     }

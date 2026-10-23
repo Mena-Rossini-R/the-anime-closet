@@ -51,7 +51,7 @@
     />
 
     <!-- External Custom Stylesheet -->
-    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
     <!-- Custom CSS for Smooth Partner Ticker Scroll -->
     <style>
@@ -106,7 +106,7 @@
 
         <!-- UPGRADED NAVIGATION FONT SIZE -->
         <nav
-          class="hidden md:flex items-center gap-6 text-sm md:text-base font-semibold uppercase tracking-wider text-petrol dark:text-zinc-300 font-mono"
+          class="site-nav hidden md:flex items-center gap-6 text-petrol dark:text-zinc-300"
         >
           <a
             href="index.html"
@@ -114,34 +114,57 @@
             >Home</a
           >
           <a
-            href="html/anime.html"
+            href="anime/anime.html"
             class="hover:text-tangerine transition-colors"
             >Anime</a
           >
           <a
-            href="html/korean.html"
+            href="korean/korean.html"
             class="hover:text-tangerine transition-colors"
             >Korean</a
           >
           <a
-            href="html/shows.html"
+            href="shows/shows.html"
             class="hover:text-tangerine transition-colors"
             >Shows</a
           >
           <a
-            href="html/about.html"
+            href="about.html"
             class="hover:text-tangerine transition-colors"
             >About Us</a
           >
         </nav>
 
-        <a
-          href="html/about.html#contact"
-          class="flex items-center gap-2 px-3.5 py-2 rounded-full bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 text-xs md:text-sm text-petrol dark:text-zinc-200 font-mono font-semibold hover:bg-tangerine hover:text-white transition-colors shadow-sm"
-        >
-          Contact Us ↗
-        </a>
+        <div class="flex items-center gap-2">
+          <a
+            href="about.html#contact"
+            class="hidden sm:flex items-center gap-2 px-3.5 py-2 rounded-full bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 text-xs md:text-sm text-petrol dark:text-zinc-200 font-mono font-semibold hover:bg-tangerine hover:text-white transition-colors shadow-sm"
+          >
+            Contact Us ↗
+          </a>
+
+          <button
+            onclick="toggleMobileMenu()"
+            class="md:hidden w-9 h-9 rounded-xl bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 flex flex-col items-center justify-center gap-1 text-petrol dark:text-zinc-200 shadow-sm focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            <span class="w-4 h-0.5 bg-current"></span>
+            <span class="w-4 h-0.5 bg-current"></span>
+            <span class="w-4 h-0.5 bg-current"></span>
+          </button>
+        </div>
       </header>
+
+      <div id="mobile-menu" class="hidden md:hidden bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 rounded-2xl p-5 mb-6 shadow-lg space-y-4 font-mono text-xs font-bold uppercase tracking-wider">
+        <nav class="flex flex-col space-y-3">
+          <a href="index.html" class="py-2 border-b border-petrol/10 dark:border-zinc-800 text-petrol dark:text-zinc-200 hover:text-tangerine">Home</a>
+          <a href="anime/anime.html" class="py-2 border-b border-petrol/10 dark:border-zinc-800 text-petrol dark:text-zinc-200 hover:text-tangerine">Anime</a>
+          <a href="korean/korean.html" class="py-2 border-b border-petrol/10 dark:border-zinc-800 text-petrol dark:text-zinc-200 hover:text-tangerine">Korean</a>
+          <a href="shows/shows.html" class="py-2 border-b border-petrol/10 dark:border-zinc-800 text-petrol dark:text-zinc-200 hover:text-tangerine">Shows</a>
+          <a href="about.html" class="py-2 text-petrol dark:text-zinc-200 hover:text-tangerine">About Us</a>
+        </nav>
+        <a href="about.html#contact" class="block text-center py-2.5 rounded-xl bg-tangerine text-white shadow-sm">Contact Us ↗</a>
+      </div>
 
       <!-- MAIN LANDING CONTAINER -->
       <main class="flex-grow space-y-8 mb-12">
@@ -408,7 +431,7 @@
           title: "Monkey D. Luffy",
           subtitle: "Gear 5 High-Fashion & Straw Hat Archive",
           genreLabel: "Anime Universe",
-          url: "html/character.html?char=luffy",
+          url: "anime/character.html?char=luffy&category=anime",
           image: "assets/luffy/luffy.jpg",
           tagLabel: "[ 01 // TAG ]",
         },
@@ -416,7 +439,7 @@
           title: "Roronoa Zoro",
           subtitle: "Three-Sword Style & Dark Academia Layering",
           genreLabel: "Anime Universe",
-          url: "html/character.html?char=zoro",
+          url: "anime/character.html?char=zoro&category=anime",
           image:
             "https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80&w=1000",
           tagLabel: "[ 02 // TAG ]",
@@ -425,7 +448,7 @@
           title: "Rachel Green",
           subtitle: "90s NYC Sitcom Coffee Shop Casual",
           genreLabel: "Shows Universe",
-          url: "html/character.html?char=racheal",
+          url: "shows/character.html?char=racheal&category=shows",
           image:
             "https://images.unsplash.com/photo-1485230895905-ec40ba36b9bc?auto=format&fit=crop&q=80&w=1000",
           tagLabel: "[ 03 // TAG ]",
@@ -444,7 +467,6 @@
 
       function startSpotlightTimer() {
         if (spotlightTimer) clearInterval(spotlightTimer);
-        // Continuous smooth rotation without pausing on hover
         spotlightTimer = setInterval(() => {
           spotlightIndex = (spotlightIndex + 1) % SPOTLIGHT_DATABASE.length;
           renderSpotlight();
@@ -484,6 +506,16 @@
                     </a>
                 </div>
             `;
+
+        const spotlightLink = container.querySelector('a');
+        if (spotlightLink) {
+          spotlightLink.addEventListener('mouseenter', () => {
+            if (spotlightTimer) clearInterval(spotlightTimer);
+          });
+          spotlightLink.addEventListener('mouseleave', () => {
+            startSpotlightTimer();
+          });
+        }
       }
 
       function resetAndFilter() {
@@ -589,13 +621,20 @@
       });
     </script>
 
-    <!-- 1. LOAD CHARACTER DATA SCRIPTS -->
-    <script src="/js/data/anime/luffy.js"></script>
+    <!-- 1. LOAD CATEGORY DATA SCRIPTS -->
+    <script src="js/site-data.js"></script>
+    <script src="anime/data/luffy.js"></script>
+    <script src="anime/data/zoro.js"></script>
+    <script src="anime/data/sanji.js"></script>
+    <script src="korean/data/bts.js"></script>
+    <script src="korean/data/blackpink.js"></script>
+    <script src="shows/data/racheal.js"></script>
+    <script src="shows/data/euphoria-core.js"></script>
 
     <!-- 2. LOAD CATALOG AGGREGATOR ENGINE -->
-    <script src="/js/catalog-aggregator.js"></script>
+    <script src="js/catalog-aggregator.js"></script>
 
-    <!-- 3. LOAD SHARED GLOBAL AURA CONTROLLER -->
-    <script src="/js/script.js"></script>
+    <!-- 3. LOAD SHARED GLOBAL CONTROLLER -->
+    <script src="js/script.js"></script>
   </body>
 </html>

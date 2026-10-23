@@ -1,7 +1,15 @@
 /* ================================================================= *
    THE ANIME CLOSET - PEACEFUL EDITORIAL GALLERY SYSTEM (`css/style.css`)
-   - Softened card borders and gentle, non-straining elevation shadows
+   - dual-theme styling: warm cream in light mode, obsidian in dark mode
    ================================================================ */
+
+html {
+    color-scheme: light;
+}
+
+html.dark {
+    color-scheme: dark;
+}
 
 body {
     transition: background-color 0.6s ease, color 0.5s ease;
@@ -10,6 +18,210 @@ body {
     letter-spacing: -0.015em;
 }
 
+.site-nav {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    color: #2d2522;
+}
+
+.site-nav a {
+    color: inherit;
+    transition: color 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a.text-tangerine,
+.site-nav a[aria-current="page"] {
+    color: #d96b43;
+}
+
+html:not(.dark) body {
+    background: #f7f4ee;
+    color: #2d2522;
+}
+
+html.dark body {
+    background: #121212;
+    color: #f5f5f5;
+}
+
+.character-card-img,
+.catalog-card-img {
+    object-fit: contain;
+    object-position: center;
+    background: #ffffff;
+}
+
+html.dark .character-card-img,
+html.dark .catalog-card-img {
+    background: #050505;
+}
+
+html:not(.dark) .character-grid-card {
+    background: #f9f3ec;
+    border-color: rgba(45, 37, 34, 0.14);
+    box-shadow: 0 10px 24px rgba(45, 37, 34, 0.08);
+}
+
+html.dark .character-grid-card {
+    background: #050505;
+    border-color: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.2);
+}
+
+html:not(.dark) .character-grid-card:hover {
+    background: #2d2522;
+    border-color: #2d2522;
+    box-shadow: 0 12px 28px rgba(45, 37, 34, 0.14);
+}
+
+html:not(.dark) .character-grid-card:hover .character-card-footer {
+    background: #2d2522;
+}
+
+html:not(.dark) .character-grid-card:hover h3,
+html:not(.dark) .character-grid-card:hover span,
+html:not(.dark) .character-grid-card:hover .text-petrol {
+    color: #f7f4ee;
+}
+
+html.dark .character-grid-card:hover {
+    background: #111111;
+    border-color: rgba(217, 107, 67, 0.28);
+    box-shadow: 0 0 0 1px rgba(217, 107, 67, 0.12), 0 18px 28px rgba(217, 107, 67, 0.08), 0 0 36px rgba(217, 107, 67, 0.12);
+}
+
+html.dark .character-grid-card:hover .character-card-footer {
+    background: rgba(26, 26, 26, 0.96);
+}
+
+html:not(.dark) .character-card-media {
+    background: #ffffff;
+}
+
+html.dark .character-card-media {
+    background: #050505;
+}
+
+html.dark .character-grid-card:hover .character-card-media {
+    background: #050505;
+    box-shadow: inset 0 0 0 1px rgba(217, 107, 67, 0.12);
+}
+
+.character-card-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.7rem;
+    padding: 0.8rem 0.9rem 0.9rem;
+    border-top: 1px solid rgba(45, 37, 34, 0.12);
+    background: #fdfaf6;
+    color: #2d2522;
+    transition: background-color 0.25s ease, color 0.25s ease, border-color 0.25s ease;
+}
+
+.character-card-copy {
+    min-width: 0;
+    width: 100%;
+}
+
+.character-card-title {
+    margin: 0;
+    font-size: 0.9rem;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: #2d2522;
+    font-family: 'Inter', sans-serif;
+    word-break: break-word;
+}
+
+.character-card-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
+    width: 100%;
+}
+
+.character-card-price-row,
+.character-card-shop-row {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.character-card-price {
+    color: #d96b43;
+    font-size: 0.65rem;
+    line-height: 1;
+    font-weight: 800;
+    font-family: 'Inter', sans-serif;
+}
+
+.character-card-shop-row {
+    margin-left: auto;
+    justify-content: flex-end;
+}
+
+.character-card-shop {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.18rem;
+    color: #2d2522;
+    font-size: 0.56rem;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-family: 'Inter', sans-serif;
+    transition: color 0.2s ease;
+}
+
+html:not(.dark) .character-card-footer {
+    background: #fdfaf6;
+    color: #2d2522;
+}
+
+html.dark .character-card-footer {
+    background: rgba(12, 12, 12, 0.96);
+    border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+html.dark .character-card-title {
+    color: #f7f4ee;
+}
+
+html.dark .character-card-shop {
+    color: #f7f4ee;
+}
+
+html:not(.dark) .character-grid-card:hover .character-card-footer {
+    background: #2d2522;
+    border-top-color: rgba(255, 255, 255, 0.12);
+}
+
+html:not(.dark) .character-grid-card:hover .character-card-title {
+    color: #f7f4ee;
+}
+
+html:not(.dark) .character-grid-card:hover .character-card-shop {
+    color: #d96b43;
+}
+
+html.dark .character-grid-card:hover .character-card-footer {
+    background: rgba(18, 18, 18, 0.98);
+}
+
+html.dark .character-grid-card:hover .character-card-shop {
+    color: #d96b43;
+}
 
 /* Editorial Typography adjustments */
 
@@ -21,31 +233,39 @@ h4,
     letter-spacing: -0.02em;
 }
 
-
 /* Smooth, Non-Fatiguing Card Elevation (Replaces harsh heavy block shadows) */
 
 .card-container {
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease, border-color 0.3s ease;
-    border: 1.5px solid rgba(45, 37, 34, 0.15);
-    /* Soft, elegant cocoa border */
+    border: 1.5px solid rgba(45, 37, 34, 0.18);
+    background: #f9f3ec;
+}
+
+html.dark .card-container {
+    background: rgba(26, 26, 26, 0.96);
+    border-color: rgba(255, 255, 255, 0.08);
 }
 
 .card-container:hover {
     transform: translateY(-2px);
 }
 
-
-/* Light Mode: Gentle, diffused shadow with zero harsh glare */
-
 html:not(.dark) .card-container:hover {
-    box-shadow: 0 10px 25px -5px rgba(45, 37, 34, 0.08);
-    border-color: rgba(45, 37, 34, 0.3);
+    background: #2d2522;
+    border-color: #2d2522;
+    box-shadow: 0 12px 28px rgba(45, 37, 34, 0.12);
 }
 
-
-/* Dark Mode: Soft obsidian with subtle warm aura */
+html:not(.dark) .card-container:hover .text-petrol,
+html:not(.dark) .card-container:hover h3,
+html:not(.dark) .card-container:hover h2,
+html:not(.dark) .card-container:hover p,
+html:not(.dark) .card-container:hover span {
+    color: #f7f4ee;
+}
 
 html.dark .card-container:hover {
-    border-color: rgba(247, 244, 238, 0.3);
-    box-shadow: 0 0 20px rgba(217, 107, 67, 0.15);
+    background: #121212;
+    border-color: rgba(217, 107, 67, 0.18);
+    box-shadow: 0 0 0 1px rgba(217, 107, 67, 0.08), 0 18px 28px rgba(217, 107, 67, 0.08), 0 0 34px rgba(217, 107, 67, 0.1);
 }

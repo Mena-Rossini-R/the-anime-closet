@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Character Lookbook | The Outfits</title>
+    <script>
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.documentElement.classList.add('dark');
+      }
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              taupeCream: '#F7F4EE',
+              cardLight: '#FFFFFF',
+              petrol: '#2D2522',
+              obsidian: '#121212',
+              cardObsidian: '#1A1A1A',
+              tangerine: '#D96B43',
+            },
+            fontFamily: {
+              sans: ['"Inter"', 'sans-serif'],
+              punk: ['"Syne"', '"Space Grotesk"', 'sans-serif'],
+              editorial: ['"Playfair Display"', 'Georgia', 'serif'],
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body class="bg-taupeCream text-petrol dark:bg-obsidian dark:text-zinc-100 min-h-screen selection:bg-tangerine selection:text-white font-sans antialiased overflow-x-hidden relative flex flex-col justify-between">
+    <div class="relative z-10 flex flex-col min-h-screen px-6 md:px-12 py-6 w-full">
+      <header class="flex items-center justify-between border-b-2 border-petrol dark:border-zinc-700 pb-3 mb-6 sticky top-0 z-50 bg-taupeCream/90 dark:bg-obsidian/90 backdrop-blur-md">
+        <div class="flex items-center gap-3">
+          <a id="top-back-btn" href="shows.html" class="w-8 h-8 rounded-xl bg-tangerine flex items-center justify-center text-white font-bold text-sm tracking-wider shadow-md border-2 border-petrol dark:border-zinc-500 hover:scale-105 transition-transform" title="Back">←</a>
+          <div>
+            <a href="../index.html" class="font-bold text-sm sm:text-lg tracking-tight text-petrol dark:text-zinc-100 dark:font-punk">The Outfits<span class="text-tangerine">.</span></a>
+            <p class="text-[9px] uppercase tracking-widest text-petrol/70 dark:text-zinc-400 font-mono font-semibold">Why Make It Boring?</p>
+          </div>
+        </div>
+
+        <nav class="site-nav hidden md:flex items-center gap-5 text-petrol dark:text-zinc-300">
+          <a href="../index.html" class="hover:text-tangerine transition-colors">Home</a>
+          <a href="../anime/anime.html" class="hover:text-tangerine transition-colors">Anime</a>
+          <a href="../korean/korean.html" class="hover:text-tangerine transition-colors">Korean</a>
+          <a href="shows.html" class="text-tangerine font-bold transition-colors">Shows</a>
+          <a href="../about.html" class="hover:text-tangerine transition-colors">About</a>
+        </nav>
+
+        <div class="flex items-center gap-2">
+          <a href="../about.html#contact" class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 text-[10px] sm:text-xs text-petrol dark:text-zinc-200 font-mono font-semibold hover:bg-tangerine hover:text-white transition-colors shadow-sm">
+            Contact Us ↗
+          </a>
+          <button 
+            onclick="toggleMobileMenu()"
+            class="md:hidden w-9 h-9 rounded-xl bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 flex flex-col items-center justify-center gap-1 text-petrol dark:text-zinc-200 shadow-sm focus:outline-none"
+            aria-label="Toggle menu"
+          >
+            <span class="w-4 h-0.5 bg-current"></span>
+            <span class="w-4 h-0.5 bg-current"></span>
+            <span class="w-4 h-0.5 bg-current"></span>
+          </button>
+        </div>
+      </header>
+
+      <div id="mobile-menu" class="hidden md:hidden bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 rounded-2xl p-5 mb-6 shadow-lg space-y-4 font-mono text-xs font-bold uppercase tracking-wider">
+        <nav class="flex flex-col space-y-3">
+          <a href="../index.html" class="py-2 border-b border-petrol/10 dark:border-zinc-800 text-petrol dark:text-zinc-200 hover:text-tangerine">Home</a>
+          <a href="../anime/anime.html" class="py-2 border-b border-petrol/10 dark:border-zinc-800 text-petrol dark:text-zinc-200 hover:text-tangerine">Anime</a>
+          <a href="../korean/korean.html" class="py-2 border-b border-petrol/10 dark:border-zinc-800 text-petrol dark:text-zinc-200 hover:text-tangerine">Korean</a>
+          <a href="shows.html" class="py-2 border-b border-petrol/10 dark:border-zinc-800 text-tangerine">Shows</a>
+          <a href="../about.html" class="py-2 text-petrol dark:text-zinc-200 hover:text-tangerine">About</a>
+        </nav>
+        <a href="../about.html#contact" class="block text-center py-2.5 rounded-xl bg-tangerine text-white shadow-sm">Contact Us ↗</a>
+      </div>
+
+      <main class="flex-grow space-y-6 mb-8">
+        <div class="bg-petrol text-taupeCream border-2 border-petrol dark:border-zinc-700 p-4 sm:p-5 rounded-2xl shadow-[4px_4px_0px_0px_#2D2522] dark:shadow-[4px_4px_0px_0px_#71717A] flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
+          <div class="space-y-0.5">
+            <h1 id="character-title" class="text-xl sm:text-3xl font-bold tracking-tight text-taupeCream font-punk">Loading Character...</h1>
+            <p id="character-subtitle" class="text-xs text-taupeCream/80 font-medium">Please wait while lookbook assets are parsed.</p>
+          </div>
+          <div class="flex items-center gap-2 flex-wrap">
+            <a id="prev-char-btn" href="#" class="px-3 py-1.5 rounded-lg bg-taupeCream/10 hover:bg-tangerine text-taupeCream border border-taupeCream/30 text-[11px] font-mono font-bold uppercase transition-colors">&larr; <span id="prev-char-name">Prev</span></a>
+            <a id="char-home-link" href="shows.html" class="px-3 py-1.5 rounded-lg bg-taupeCream/10 hover:bg-tangerine text-taupeCream border border-taupeCream/30 text-[11px] font-mono font-bold uppercase transition-colors flex items-center gap-1" title="Go to Shows Hub">🏠 Home</a>
+            <a id="next-char-btn" href="#" class="px-3 py-1.5 rounded-lg bg-taupeCream/10 hover:bg-tangerine text-taupeCream border border-taupeCream/30 text-[11px] font-mono font-bold uppercase transition-colors"><span id="next-char-name">Next</span> &rarr;</a>
+          </div>
+        </div>
+
+        <div id="catalog-view" class="space-y-4">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-3 gap-3 border-b-2 border-petrol/20 dark:border-zinc-800">
+            <h2 class="text-xs font-mono font-bold uppercase tracking-wider text-petrol/70 dark:text-zinc-400">All Lookbook Options (Select to View)</h2>
+            <div class="flex items-center gap-1.5 bg-cardLight dark:bg-cardObsidian p-1 rounded-xl border-2 border-petrol dark:border-zinc-700 shadow-sm font-mono text-xs">
+              <button onclick="filterFits('all')" id="filter-btn-all" class="px-3 py-1 rounded-lg bg-petrol text-white font-bold transition-all">All Fits</button>
+              <button onclick="filterFits('male')" id="filter-btn-male" class="px-3 py-1 rounded-lg text-petrol dark:text-zinc-300 hover:bg-petrol/10 font-bold transition-all">Male Fit ♂</button>
+              <button onclick="filterFits('female')" id="filter-btn-female" class="px-3 py-1 rounded-lg text-petrol dark:text-zinc-300 hover:bg-petrol/10 font-bold transition-all">Female Fit ♀</button>
+            </div>
+          </div>
+          <div id="catalog-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 items-stretch"></div>
+        </div>
+
+        <div id="active-look-section" class="hidden bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 p-5 sm:p-6 rounded-3xl shadow-[6px_6px_0px_0px_#2D2522] dark:shadow-[6px_6px_0px_0px_#71717A] space-y-6">
+          <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 border-b-2 border-petrol/20 dark:border-zinc-800 pb-4">
+            <div>
+              <span id="active-look-tag" class="text-xs font-mono font-bold text-tangerine uppercase tracking-widest">Look 01</span>
+              <h3 id="active-look-title" class="text-xl sm:text-2xl font-bold font-punk text-petrol dark:text-zinc-100 mt-0.5">Look Title</h3>
+            </div>
+            <button id="back-to-catalog-btn" class="px-4 py-2 rounded-xl border-2 border-petrol dark:border-zinc-600 text-xs font-mono font-bold uppercase tracking-wider hover:bg-petrol hover:text-white transition-colors shadow-sm">← Back to All Looks</button>
+          </div>
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+            <div class="lg:col-span-5 flex flex-col space-y-3">
+              <div class="bg-white dark:bg-zinc-950 border-2 border-petrol dark:border-zinc-700 rounded-2xl overflow-hidden h-[420px] flex items-center justify-center relative p-4 shadow-sm">
+                <img id="modal-model-img" src="" alt="Lookbook Reference Model" class="absolute inset-0 w-full h-full object-contain object-center p-4 hidden" />
+                <div id="modal-placeholder" class="space-y-2 text-center">
+                  <span class="text-4xl">🧥</span>
+                  <p class="text-xs font-mono font-bold text-petrol/70 dark:text-zinc-400">No Preview Asset</p>
+                </div>
+              </div>
+              <div class="flex items-center justify-between gap-2">
+                <button onclick="prevLook()" class="flex-1 px-3 py-2.5 rounded-xl bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 text-xs font-mono font-bold uppercase tracking-wider hover:bg-tangerine hover:text-white transition-colors shadow-sm text-center" title="Previous Look">&lt; Prev Look</button>
+                <button onclick="nextLook()" class="flex-1 px-3 py-2.5 rounded-xl bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 text-xs font-mono font-bold uppercase tracking-wider hover:bg-tangerine hover:text-white transition-colors shadow-sm text-center" title="Next Look">Next Look &gt;</button>
+              </div>
+            </div>
+            <div class="lg:col-span-7 flex flex-col space-y-3">
+              <div id="modal-look-display" class="space-y-3"></div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <footer class="border-t-2 border-petrol dark:border-zinc-700 pt-4 pb-4 flex flex-col md:flex-row items-center justify-between text-xs text-petrol dark:text-zinc-300 gap-4 font-semibold flex-shrink-0">
+        <p>&copy; 2026 The Outfits. Curated Pop-Culture & On-Screen Fashion for India.</p>
+        <div class="flex items-center gap-6 font-mono">
+          <a href="../index.html" class="hover:text-tangerine transition-colors">Home</a>
+          <span>•</span>
+          <a href="../about.html" class="hover:text-tangerine transition-colors">About Us</a>
+          <span>•</span>
+          <a href="mailto:hello@theoutfits.in" class="hover:text-tangerine transition-colors">Email: hello@theoutfits.in ↗</a>
+        </div>
+      </footer>
+    </div>
+
+    <script src="../js/site-data.js"></script>
+    <script src="shows.js"></script>
+    <script src="data/racheal.js"></script>
+    <script src="data/euphoria-core.js"></script>
+    <script src="../js/dynamic_loader.js"></script>
+    <script src="../js/script.js"></script>
+  </body>
+</html>

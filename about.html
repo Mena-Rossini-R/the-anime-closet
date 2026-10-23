@@ -48,7 +48,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
 
     <!-- External Custom Stylesheet -->
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="bg-taupeCream text-petrol dark:bg-obsidian dark:text-zinc-100 min-h-screen selection:bg-tangerine selection:text-white font-sans antialiased flex flex-col justify-between">
 
@@ -63,7 +63,7 @@
                     TO
                 </div>
                 <div>
-                    <a href="../index.html" class="font-bold text-base md:text-lg tracking-tight text-petrol dark:text-zinc-100 dark:font-punk">
+                    <a href="index.html" class="font-bold text-base md:text-lg tracking-tight text-petrol dark:text-zinc-100 dark:font-punk">
                         The Outfits<span class="text-tangerine">.</span>
                     </a>
                     <p class="text-[9px] uppercase tracking-widest text-petrol/70 dark:text-zinc-400 font-mono font-semibold">Why Make It Boring?</p>
@@ -71,18 +71,41 @@
             </div>
 
             <!-- Top Right Navigation Links -->
-            <nav class="hidden md:flex items-center gap-6 text-xs font-semibold uppercase tracking-wider text-petrol dark:text-zinc-300 font-mono">
-                <a href="../index.html" class="hover:text-tangerine transition-colors">Home</a>
-                <a href="anime.html" class="hover:text-tangerine transition-colors">Anime</a>
-                <a href="korean.html" class="hover:text-tangerine transition-colors">Korean</a>
-                <a href="shows.html" class="hover:text-tangerine transition-colors">Shows</a>
+            <nav class="site-nav hidden md:flex items-center gap-6 text-petrol dark:text-zinc-300">
+                <a href="index.html" class="hover:text-tangerine transition-colors">Home</a>
+                <a href="anime/anime.html" class="hover:text-tangerine transition-colors">Anime</a>
+                <a href="korean/korean.html" class="hover:text-tangerine transition-colors">Korean</a>
+                <a href="shows/shows.html" class="hover:text-tangerine transition-colors">Shows</a>
                 <a href="about.html" class="text-tangerine font-bold transition-colors">About Us</a>
             </nav>
 
-            <a href="about.html#contact" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 text-xs text-petrol dark:text-zinc-200 font-mono font-semibold hover:bg-tangerine hover:text-white transition-colors shadow-sm">
-                Contact Us ↗
-            </a>
+            <div class="flex items-center gap-2">
+                <a href="about.html#contact" class="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-full bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 text-xs text-petrol dark:text-zinc-200 font-mono font-semibold hover:bg-tangerine hover:text-white transition-colors shadow-sm">
+                    Contact Us ↗
+                </a>
+
+                <button 
+                    onclick="toggleMobileMenu()"
+                    class="md:hidden w-9 h-9 rounded-xl bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-600 flex flex-col items-center justify-center gap-1 text-petrol dark:text-zinc-200 shadow-sm focus:outline-none"
+                    aria-label="Toggle menu"
+                >
+                    <span class="w-4 h-0.5 bg-current"></span>
+                    <span class="w-4 h-0.5 bg-current"></span>
+                    <span class="w-4 h-0.5 bg-current"></span>
+                </button>
+            </div>
         </header>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-cardLight dark:bg-cardObsidian border-2 border-petrol dark:border-zinc-700 rounded-2xl p-5 mb-6 shadow-lg space-y-4 font-mono text-xs font-bold uppercase tracking-wider">
+            <nav class="flex flex-col space-y-3">
+                <a href="index.html" class="py-2 border-b border-petrol/10 dark:border-zinc-800 text-petrol dark:text-zinc-200 hover:text-tangerine">Home</a>
+                <a href="anime/anime.html" class="py-2 border-b border-petrol/10 dark:border-zinc-800 text-petrol dark:text-zinc-200 hover:text-tangerine">Anime</a>
+                <a href="korean/korean.html" class="py-2 border-b border-petrol/10 dark:border-zinc-800 text-petrol dark:text-zinc-200 hover:text-tangerine">Korean</a>
+                <a href="shows/shows.html" class="py-2 border-b border-petrol/10 dark:border-zinc-800 text-petrol dark:text-zinc-200 hover:text-tangerine">Shows</a>
+                <a href="about.html" class="py-2 text-petrol dark:text-zinc-200 hover:text-tangerine">About Us</a>
+            </nav>
+            <a href="about.html#contact" class="block text-center py-2.5 rounded-xl bg-tangerine text-white shadow-sm">Contact Us ↗</a>
+        </div>
 
         <!-- ABOUT US EDITORIAL CONTAINER -->
         <main class="flex-grow space-y-8 mb-12">
@@ -154,6 +177,6 @@
     </div>
 
     <!-- External Custom JavaScript Controller -->
-    <script src="../js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 </html>
